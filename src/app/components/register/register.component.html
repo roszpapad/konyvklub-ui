@@ -1,0 +1,105 @@
+<div class="container-fluid wrapper">
+  <div class="row form-row">
+    <div class="col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+
+
+      <mat-card>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <mat-card-content>
+            <div class="row">
+              <div class="col-12">
+                <h1 class="text-center">Regisztráció</h1>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 mb-3">
+                <mat-form-field class="example-full-width">
+                  <input matInput id="email" placeholder="Email" formControlName="email" required>
+                  <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && (email.errors.required || email.errors.email)">
+                    Kérjük adjon meg egy létező e-mail címet!
+                  </mat-error>
+                </mat-form-field>
+                <div class="alert alert-danger" [ngStyle]="{'display':(myErrors.length > 0) && errorArrayContainsValue('email') && !confirmed ? 'block' : 'none' }">
+                  <div *ngIf="(myErrors.length > 0) && errorArrayContainsValue('email'); else templateName">{{getErrorMessage('email')}}</div>
+                </div>
+              </div>
+              <div class="col-12 mb-3">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Felhasználónév" id="username" formControlName="username" required>
+                  <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && username.errors.required">
+                    Felhasználónév szukseges
+                  </mat-error>
+                  <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && (username.errors.minlength || username.errors.maxlength)">
+                    Felhasznalonev 4 es 10 karakter kozt kell legyen
+                  </mat-error>
+                </mat-form-field>
+                <div class="alert alert-danger" [ngStyle]="{'display':(myErrors.length > 0) && errorArrayContainsValue('username') && !confirmed ? 'block' : 'none' }">
+                  <div *ngIf="(myErrors.length > 0) && errorArrayContainsValue('username'); else templateName">{{getErrorMessage('username')}}</div>
+                </div>
+              </div>
+              <div class="col-12 mb-3">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Keresztnév" id="firstName" formControlName="firstName" required>
+                  <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && firstName.errors.required">
+                    required fname
+                  </mat-error>
+                  <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && (firstName.errors.minlength || firstName.errors.maxlength)">
+                    Nev 2 es 20 karakter kozott
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12 mb-3">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Vezetéknév" id="lastName" formControlName="lastName" required>
+                  <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors.required">
+                    required nev
+                  </mat-error>
+                  <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && (lastName.errors.minlength || lastName.errors.maxlength)">
+                    2 es 20 kar kozott
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12 mb-3">
+                <mat-form-field>
+                  <input matInput placeholder="Jelszó" type="password" id="password" formControlName="password"
+                    required>
+                  <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.required">
+                    required pass
+                  </mat-error>
+                  <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && (password.errors.minlength || password.errors.maxlength)">
+                    6 es 15 koztt
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12 mb-3">
+                <mat-form-field>
+                  <input matInput placeholder="Jelszó ismet" type="password" id="passwordAgain" formControlName="passwordAgain"
+                    required>
+                  <mat-error *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched) && passwordAgain.errors.required">
+                    required pass
+                  </mat-error>
+                  <mat-error *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched) && (passwordAgain.errors.minlength || passwordAgain.errors.maxlength)">
+                    6 es 15 koztt
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+          </mat-card-content>
+
+
+
+          <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
+              Regisztráció
+            </button>
+          </mat-card-actions>
+        </form>
+        <!--<p>Regisztráltál már? Lépj be
+          <a [routerLink]="['/login']">itt.</a>
+        </p>-->
+      </mat-card>
+    </div>
+  </div>
+</div>
