@@ -16,8 +16,11 @@ export class RegisterComponent implements OnInit {
     'passwordAgain': new FormControl('', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(15)])),
     'email': new FormControl('', Validators.compose([Validators.email, Validators.required])),
     'firstName': new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(20)])),
-    'lastName': new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(20)]))
-  }, this.passwordMatchValidator);;
+    'lastName': new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(20)])),
+    'city' : new FormControl('', Validators.required),
+    'street' : new FormControl(''),
+    'number' : new FormControl('')
+  }, this.passwordMatchValidator);
 
   myErrors = new Array();
 
@@ -36,7 +39,13 @@ export class RegisterComponent implements OnInit {
         'email': this.form.get("email").value,
         'firstName': this.form.get("firstName").value,
         'lastName': this.form.get("lastName").value,
-        'password': this.form.get("password").value
+        'password': this.form.get("password").value,
+        'passConfirm' : this.form.get("passwordAgain").value,
+        'address' : {
+          'city' : this.form.get("city").value,
+          'number' : this.form.get("number").value,
+          'street' : this.form.get("street").value
+        }
       }).subscribe(
         result => { },
 
@@ -53,7 +62,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  private passwordMatchValidator(f: FormGroup) {
+  passwordMatchValidator(f: FormGroup) {
     return f.get('password').value === f.get('passwordAgain').value
       ? null : { 'mismatch': true };
   }
@@ -64,5 +73,8 @@ export class RegisterComponent implements OnInit {
   get password() {return this.form.get("password")};
   get passwordAgain() {return this.form.get("passwordAgain")};
   get email() {return this.form.get("email")};
+  get street() {return this.form.get("street")};
+  get city() {return this.form.get("city")};
+  get number() {return this.form.get("number")};
 
 }

@@ -84,6 +84,25 @@
                   </mat-error>
                 </mat-form-field>
               </div>
+              <div class="col-12 mb-3">
+                <mat-form-field>
+                  <input matInput placeholder="Varos" id="city" formControlName="city"
+                    required>
+                  <mat-error *ngIf="city.invalid && (city.dirty || city.touched) && city.errors.required">
+                    required city
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12 mb-3">
+                <mat-form-field>
+                  <input matInput placeholder="Utca" id="street" formControlName="street">
+                </mat-form-field>
+              </div>
+              <div class="col-12 mb-3">
+                <mat-form-field>
+                  <input matInput placeholder="Utcaszam" id="number" formControlName="number">
+                </mat-form-field>
+              </div>
             </div>
 
           </mat-card-content>
