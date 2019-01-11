@@ -20,7 +20,7 @@
                     Kérjük adjon meg egy létező e-mail címet!
                   </mat-error>
                 </mat-form-field>
-                <div class="alert alert-danger" [ngStyle]="{'display':(myErrors.length > 0) && errorArrayContainsValue('email') && !confirmed ? 'block' : 'none' }">
+                <div class="alert alert-danger mt-2" [ngStyle]="{'display':(myErrors.length > 0) && errorArrayContainsValue('email') ? 'block' : 'none' }">
                   <div *ngIf="(myErrors.length > 0) && errorArrayContainsValue('email'); else templateName">{{getErrorMessage('email')}}</div>
                 </div>
               </div>
@@ -34,7 +34,7 @@
                     Felhasznalonev 4 es 10 karakter kozt kell legyen
                   </mat-error>
                 </mat-form-field>
-                <div class="alert alert-danger" [ngStyle]="{'display':(myErrors.length > 0) && errorArrayContainsValue('username') && !confirmed ? 'block' : 'none' }">
+                <div class="alert alert-danger mt-2" [ngStyle]="{'display':(myErrors.length > 0) && errorArrayContainsValue('username') ? 'block' : 'none' }">
                   <div *ngIf="(myErrors.length > 0) && errorArrayContainsValue('username'); else templateName">{{getErrorMessage('username')}}</div>
                 </div>
               </div>
@@ -62,8 +62,9 @@
               </div>
               <div class="col-12 mb-3">
                 <mat-form-field>
-                  <input matInput placeholder="Jelszó" type="password" id="password" formControlName="password"
-                    required>
+                  <input matInput placeholder="Jelszó" [type]="hide ? 'password' : 'text'" id="password"
+                    formControlName="password" required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.required">
                     required pass
                   </mat-error>
@@ -74,20 +75,23 @@
               </div>
               <div class="col-12 mb-3">
                 <mat-form-field>
-                  <input matInput placeholder="Jelszó ismet" type="password" id="passwordAgain" formControlName="passwordAgain"
-                    required>
+                  <input matInput placeholder="Jelszó ismet" [type]="hide1 ? 'password' : 'text'" id="passwordAgain"
+                    formControlName="passwordAgain" required>
+                  <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched) && passwordAgain.errors.required">
                     required pass
                   </mat-error>
                   <mat-error *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched) && (passwordAgain.errors.minlength || passwordAgain.errors.maxlength)">
                     6 es 15 koztt
                   </mat-error>
+                  <mat-error *ngIf="(passwordAgain.dirty || passwordAgain.touched) && passwordAgain.errors && passwordAgain.errors.MatchPassword && !(passwordAgain.errors.minlength || passwordAgain.errors.maxlength)">
+                    Nem egyeznek
+                  </mat-error>
                 </mat-form-field>
               </div>
               <div class="col-12 mb-3">
                 <mat-form-field>
-                  <input matInput placeholder="Varos" id="city" formControlName="city"
-                    required>
+                  <input matInput placeholder="Varos" id="city" formControlName="city" required>
                   <mat-error *ngIf="city.invalid && (city.dirty || city.touched) && city.errors.required">
                     required city
                   </mat-error>
