@@ -1,3 +1,50 @@
-<p>
-  login works!
-</p>
+<div class="container-fluid wrapper">
+  <div class="row form-row">
+    <div class="col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+      <mat-card>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <mat-card-content>
+            <div class="row mb-2">
+              <div class="col-12">
+                <h1 class="text-center">Bejelentkezés</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mb-3">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Felhasználónév" id="username" formControlName="username" required>
+                  <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && username.errors.required">
+                    Kérem adjon meg egy felhasználónevet!
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12 mb-3">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Jelszó" type="password" id="password" formControlName="password" required>
+                  <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.required">
+                    Kérem adja meg a jelszavát!
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="alert alert-primary" [ngStyle]="{'display': confirmationSuccess=='noToken' || confirmationSuccess=='success' || confirmationSuccess=='expiredToken'? 'block' : 'none' }">
+              <div *ngIf="confirmationSuccess=='noToken'">Az ön tokene érvénytelen. Kérem próbálkozzon érvényes
+                tokennel!</div>
+              <div *ngIf="confirmationSuccess=='success'">Sikeres aktiválás!</div>
+              <div *ngIf="confirmationSuccess=='expiredToken'">Az ön tokene lejárt, újat küldtünk az általa megadott e-mail
+                címre.</div>
+            </div>
+            <div class="alert alert-danger" [ngStyle]="{'display':(myErrors.length > 0) ? 'block' : 'none' }">
+              <div *ngIf="(myErrors.length > 0)">Hibás felhasználónév vagy jelszó</div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
+              Bejelentkezés
+            </button>
+          </mat-card-actions>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ import {
   MatFormFieldModule, MatIcon, MatIconModule,
   MatInputModule,
   MatNativeDateModule,
+  MatSnackBarModule,
   MatSelectModule,
   MatCardModule
 } from '@angular/material';
@@ -19,13 +20,19 @@ import { routing } from './app.routing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { MyDetailsComponent } from './components/my-details/my-details.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MyProfileComponent,
+    MyDetailsComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +42,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     MatInputModule,
     MatSelectModule,
     BrowserAnimationsModule,

@@ -1,0 +1,20 @@
+.detail-column {
+    width: 200px;
+    float: left;
+}
+
+@media screen and (max-width: 500px){
+
+    .detail-column {
+        width: 150px;
+        float: left;
+    }
+}
+
+@media screen and (max-width: 350px){
+
+    .detail-column {
+        width: 125px;
+        float: left;
+    }
+}
