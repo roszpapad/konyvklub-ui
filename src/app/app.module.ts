@@ -23,6 +23,8 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { MyDetailsComponent } from './components/my-details/my-details.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { MyBooksComponent } from './components/my-books/my-books.component';
+import { NewBookDialogComponent } from './components/new-book-dialog/new-book-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     LoginComponent,
     MyProfileComponent,
     MyDetailsComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    MyBooksComponent,
+    NewBookDialogComponent
   ],
   imports: [
     BrowserModule,
