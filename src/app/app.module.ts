@@ -26,6 +26,8 @@ import { MyDetailsComponent } from './components/my-details/my-details.component
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { NewBookDialogComponent } from './components/new-book-dialog/new-book-dialog.component';
+import { TicketComponent } from './components/ticket/ticket.component';
+import { TicketFilterComponent } from './components/ticket-filter/ticket-filter.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { NewBookDialogComponent } from './components/new-book-dialog/new-book-di
     MyDetailsComponent,
     ChangePasswordComponent,
     MyBooksComponent,
-    NewBookDialogComponent
+    NewBookDialogComponent,
+    TicketComponent,
+    TicketFilterComponent
   ],
   imports: [
     BrowserModule,

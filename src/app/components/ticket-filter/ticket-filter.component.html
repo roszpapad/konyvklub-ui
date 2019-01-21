@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <mat-card>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <mat-card-content>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput id="title" placeholder="Cím" formControlName="title">
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput id="writer" placeholder="Szerző" formControlName="writer">
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button type="submit" mat-raised-button color="primary">
+              Keresés <i class="fas fa-search"></i>
+            </button>
+          </mat-card-actions>
+        </form>
+        <mat-card>
+    </div>
+  </div>
+</div>
