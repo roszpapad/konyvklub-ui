@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ResourceService } from './resource.service';
-import { userInfo } from 'os';
 import { AuthenticationService } from './authentication.service';
 import { User } from '../_models/user';
 import { TokenService } from './token.service';
@@ -24,6 +23,10 @@ export class BookService {
     if (userId) {
         return this.resourceService.postData('/users/' + userId + '/books',book);
     }
+  }
+
+  deleteBook(bookId){
+    return this.resourceService.deleteResourceFromApi('/books/' + bookId);
   }
 
 }

@@ -1,3 +1,64 @@
-<p>
-  new-book-dialog works!
-</p>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-12">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <h2 mat-dialog-title>Könyv hozzáadása</h2>
+        <mat-dialog-content>
+          <div class="row text-center">
+            <div class="col-12">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Cím" id="title" formControlName="title" required>
+                <mat-error *ngIf="title.invalid && (title.dirty || title.touched) && title.errors.required">
+                  Kérem adja meg a címet!
+                </mat-error>
+                <mat-error *ngIf="title.invalid && (title.dirty || title.touched) && (title.errors.minlength || title.errors.maxlength)">
+                  A cím 1 és 100 karakter hosszúság között mozoghat!
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Író" id="writer" formControlName="writer" required>
+                <mat-error *ngIf="writer.invalid && (writer.dirty || writer.touched) && writer.errors.required">
+                  Kérem adja meg az írót!
+                </mat-error>
+                <mat-error *ngIf="writer.invalid && (writer.dirty || writer.touched) && (writer.errors.minlength || writer.errors.maxlength)">
+                  A szerző neve 1 és 100 karakter hosszúság között mozoghat!
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Kiadó" id="publisher" formControlName="publisher" required>
+                <mat-error *ngIf="publisher.invalid && (publisher.dirty || publisher.touched) && publisher.errors.required">
+                  Kérem adja meg a kiadó nevét!
+                </mat-error>
+                <mat-error *ngIf="publisher.invalid && (publisher.dirty || publisher.touched) && (publisher.errors.minlength || publisher.errors.maxlength)">
+                  A kiadó neve 1 és 100 karakter hosszúság között mozoghat!
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Kiadási év" id="yearOfPublishing" formControlName="yearOfPublishing"
+                  required type="number">
+                <mat-error *ngIf="yearOfPublishing.invalid && (yearOfPublishing.dirty || yearOfPublishing.touched) && yearOfPublishing.errors.required">
+                  Kérem adja meg a kiadás évét!
+                </mat-error>
+                <mat-error *ngIf="yearOfPublishing.invalid && (yearOfPublishing.dirty || yearOfPublishing.touched) && yearOfPublishing.errors.max">
+                  Érvényes évet adjon meg!
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+          <button (click)="close()" class="btn float-right" mat-raised-button color="warn">Mégsem</button>
+          <button type="submit" class="btn float-right" mat-raised-button color="primary" [disabled]="form.invalid">
+            Hozzáad
+          </button>
+        </mat-dialog-actions>
+      </form>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import {
   MatDatepickerModule, MatDialogModule,
   MatFormFieldModule, MatIcon, MatIconModule,
   MatInputModule,
+  MatTableModule,
   MatNativeDateModule,
   MatSnackBarModule,
   MatSelectModule,
@@ -48,6 +49,7 @@ import { NewBookDialogComponent } from './components/new-book-dialog/new-book-di
     MatFormFieldModule,
     MatSnackBarModule,
     MatInputModule,
+    MatTableModule,
     MatSelectModule,
     BrowserAnimationsModule,
     MatIconModule,
@@ -65,6 +67,7 @@ import { NewBookDialogComponent } from './components/new-book-dialog/new-book-di
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NewBookDialogComponent]
 })
 export class AppModule { }

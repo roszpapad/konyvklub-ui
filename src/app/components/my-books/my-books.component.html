@@ -1,3 +1,49 @@
-<div *ngFor = "let book of books">
-  <p>{{book}}</p>
+<div class="container">
+  <h1 class="text-center mt-3">Könyveim</h1>
+  <div class="row mt-5">
+    <div class="col-12">
+      <table mat-table class="text-center" [dataSource]="books" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Cím</th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="writer">
+          <th mat-header-cell *matHeaderCellDef>Író</th>
+          <td mat-cell *matCellDef="let element"> {{element.writer}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="publisher">
+          <th mat-header-cell *matHeaderCellDef>Kiadó</th>
+          <td mat-cell *matCellDef="let element"> {{element.publisher}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="yearOfPublishing">
+          <th mat-header-cell *matHeaderCellDef>Kiadás éve</th>
+          <td mat-cell *matCellDef="let element"> {{element.yearOfPublishing}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="offerable">
+          <th mat-header-cell *matHeaderCellDef>Szabad-e?</th>
+          <td mat-cell *matCellDef="let element"> {{isOfferable(element.offerable)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef>Törlés</th>
+          <td mat-cell *matCellDef="let element"><button class="delete-btn" [disabled]="!element.offerable" mat-raised-button color="warn" (click)="deleteBook(element.id)">
+              <i class="fas fa-trash-alt"></i>
+            </button></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <div class="col-12">
+      <button (click)="openCreateBookDialog()" mat-raised-button color="primary" class="add-btn mt-3">+</button>
+    </div>
+  </div>
 </div>
