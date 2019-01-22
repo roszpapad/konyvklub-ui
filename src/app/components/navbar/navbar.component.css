@@ -1,6 +1,5 @@
 .menu > li a:hover {
-    background-color: rgb(116, 185, 255);
-    color: black !important;
+    background-color: rgb(39, 59, 173);
 }
 
 .menu > li a {
@@ -9,6 +8,6 @@
 }
 
 .navbar {
-    background-color : rgb(9, 132, 227);
+    background-color :rgb(63, 81, 181);
 }
 

@@ -9,6 +9,7 @@ import {
   MatInputModule,
   MatTableModule,
   MatNativeDateModule,
+  MatCheckboxModule,
   MatSnackBarModule,
   MatSelectModule,
   MatCardModule
@@ -28,6 +29,8 @@ import { MyBooksComponent } from './components/my-books/my-books.component';
 import { NewBookDialogComponent } from './components/new-book-dialog/new-book-dialog.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { TicketFilterComponent } from './components/ticket-filter/ticket-filter.component';
+import { TicketListComponent } from './components/ticket-list/ticket-list.component';
+import { BrowseTicketsComponent } from './components/browse-tickets/browse-tickets.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,9 @@ import { TicketFilterComponent } from './components/ticket-filter/ticket-filter.
     MyBooksComponent,
     NewBookDialogComponent,
     TicketComponent,
-    TicketFilterComponent
+    TicketFilterComponent,
+    TicketListComponent,
+    BrowseTicketsComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ import { TicketFilterComponent } from './components/ticket-filter/ticket-filter.
     MatFormFieldModule,
     MatSnackBarModule,
     MatInputModule,
+    MatCheckboxModule,
     MatTableModule,
     MatSelectModule,
     BrowserAnimationsModule,

@@ -5,6 +5,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { TicketFilterComponent } from './components/ticket-filter/ticket-filter.component';
+import { BrowseTicketsComponent } from './components/browse-tickets/browse-tickets.component';
 
 const appRoutes: Routes = [
     {
@@ -28,6 +29,9 @@ const appRoutes: Routes = [
     },
     {
         path: 'filter', component: TicketFilterComponent
+    },
+    {
+        path: 'browse', component: BrowseTicketsComponent
     }
 ];
 

@@ -1,0 +1,16 @@
+.form-row {
+    text-align: center;
+}
+
+.actions {
+    text-align: center;
+}
+
+mat-card-header {
+    display: flex;
+    justify-content: center;
+}
+
+mat-form-field {
+    width: 90%;
+}

@@ -1,5 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder} from '@angular/forms';
+import { TicketService } from 'src/app/_services/ticket.service';
 
 @Component({
   selector: 'app-ticket-filter',
@@ -10,24 +11,30 @@ export class TicketFilterComponent implements OnInit {
 
   form : FormGroup;
 
-  @Output() ticketList = [];
+  @Output() ticketList : EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private formBuilder : FormBuilder) { }
+  constructor(private formBuilder : FormBuilder,
+              private ticketService : TicketService) { }
 
   ngOnInit() {
 
     this.form = this.formBuilder.group({
-      title : [],
-      writer : []
+      title : [''],
+      writer : [''],
+      owned : [false]
     });
-
   }
 
   submit(){
-
+    this.ticketService.filterTickets(this.form.get("title").value, this.form.get("writer").value).subscribe(
+      data => {
+        this.ticketList.emit(data);
+      }
+    );
   }
 
   get title() {return this.form.get("title");}
   get writer(){return this.form.get("writer");}
+  get owned(){return this.form.get("owned");}
 
 }
