@@ -1,0 +1,39 @@
+<mat-card class="example-card">
+  <mat-card-header class="title-container">
+    <mat-card-title class="title-text">{{offer.bookToPay.title}}</mat-card-title>
+    <mat-card-subtitle [ngClass]="{
+            'is-pending': !isRejected,
+            'is-rejected': isRejected
+          }">{{showStatus(offer.status)}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="mt-3">
+    <div class="row profile-row">
+      <div class="col-12 mb-2">
+        <img src="assets/img/person.jpg" class="profile-img" />
+        <span class="profile-name">{{offer.customer.username}}, </span>
+        <span class="profile-city">{{offer.customer.address.city}}</span>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12 col-sm-6">
+        <p>Iro: {{offer.bookToPay.writer}}</p>
+      </div>
+      <div class="col-12 col-sm-6">
+        <p>Kiadas eve: {{offer.bookToPay.yearOfPublishing}}</p>
+      </div>
+      <div class="col-12 col-sm-6">
+        <p>Kiado: {{offer.bookToPay.publisher}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mt-2">
+        <h2>Miért velem cserélj?</h2>
+        <p class="description">{{offer.description}}</p>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions *ngIf="isOwner && offer.status != 'REJECTED'" class="actions">
+    <button mat-raised-button (click)="acceptOffer(offer.id)" color="primary">Elfogad</button>
+    <button mat-raised-button (click)="rejectOffer(offer.id)" color="warn">Elutasít</button>
+  </mat-card-actions>
+</mat-card>

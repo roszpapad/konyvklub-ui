@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10 offset-1 underlined mb-4 mt-4">
+      <h3>Eladni kívánt könyv</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <app-ticket [ticket]="ticket"></app-ticket>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-2 underlined mb-4 mt-4">
+      <h4>Ajánlatok<span class="float-right mb-2">
+          <button (click)="openNewOfferDialog()" class="add-button" mat-raised-button>
+            <i class="fas fa-plus"></i>
+             Ajánlat hozzáadása
+          </button>
+        </span>
+      </h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2 mt-3" *ngFor="let offer of ticket.offers">
+      <app-offer [offer]="offer" [isOwner]="isOwner" (rejectedEvent)="afterRejected($event)" (acceptedEvent)="afterAccepted($event)"></app-offer>
+    </div>
+  </div>
+</div>

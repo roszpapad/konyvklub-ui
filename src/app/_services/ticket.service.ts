@@ -15,4 +15,8 @@ export class TicketService {
   getAllTickets(){
     return this.resourceService.getResourceFromApi('/tickets/all');
   }
+
+  getTicketById(id){
+    return this.resourceService.getResourceFromApi('/tickets/' + id);
+  }
 }

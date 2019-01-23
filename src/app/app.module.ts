@@ -31,6 +31,10 @@ import { TicketComponent } from './components/ticket/ticket.component';
 import { TicketFilterComponent } from './components/ticket-filter/ticket-filter.component';
 import { TicketListComponent } from './components/ticket-list/ticket-list.component';
 import { BrowseTicketsComponent } from './components/browse-tickets/browse-tickets.component';
+import { TicketShowComponent } from './components/ticket-show/ticket-show.component';
+import { OfferComponent } from './components/offer/offer.component';
+import { DummyComponent } from './components/dummy/dummy.component';
+import { NewOfferDialogComponent } from './components/new-offer-dialog/new-offer-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { BrowseTicketsComponent } from './components/browse-tickets/browse-ticke
     TicketComponent,
     TicketFilterComponent,
     TicketListComponent,
-    BrowseTicketsComponent
+    BrowseTicketsComponent,
+    TicketShowComponent,
+    OfferComponent,
+    DummyComponent,
+    NewOfferDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +86,6 @@ import { BrowseTicketsComponent } from './components/browse-tickets/browse-ticke
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NewBookDialogComponent]
+  entryComponents: [NewBookDialogComponent,NewOfferDialogComponent]
 })
 export class AppModule { }

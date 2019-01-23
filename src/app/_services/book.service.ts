@@ -29,4 +29,11 @@ export class BookService {
     return this.resourceService.deleteResourceFromApi('/books/' + bookId);
   }
 
+  getAllOfferableBooks(){
+    let userId = this.tokenService.getTokenProperty("id");
+    if (userId) {
+        return this.resourceService.getResourceFromApi('/users/' + userId + '/offerableBooks')
+    }
+  }
+
 }

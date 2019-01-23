@@ -6,6 +6,8 @@ import { MyBooksComponent } from './components/my-books/my-books.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { TicketFilterComponent } from './components/ticket-filter/ticket-filter.component';
 import { BrowseTicketsComponent } from './components/browse-tickets/browse-tickets.component';
+import { TicketShowComponent } from './components/ticket-show/ticket-show.component';
+import { DummyComponent } from './components/dummy/dummy.component';
 
 const appRoutes: Routes = [
     {
@@ -32,6 +34,12 @@ const appRoutes: Routes = [
     },
     {
         path: 'browse', component: BrowseTicketsComponent
+    },
+    {
+        path: 'tickets/:id', component: TicketShowComponent
+    },
+    {
+        path: 'dummy', component: DummyComponent
     }
 ];
 

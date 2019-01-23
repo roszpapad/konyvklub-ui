@@ -23,11 +23,11 @@
 
 mat-card-header {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .title-text {
-    font-size: 200%;
+    font-size: 150%;
 }
 
 .actions {
@@ -37,4 +37,12 @@ mat-card-header {
 .description {
     font-family: Arial, Helvetica, sans-serif !important;
     white-space: pre-line;
+}
+
+.is-pending {
+    color:blue;
+}
+
+.is-rejected {
+    color:red;
 }

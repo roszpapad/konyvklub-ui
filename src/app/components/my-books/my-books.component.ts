@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/app/_services/book.service';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { NewBookDialogComponent } from '../new-book-dialog/new-book-dialog.component';
-import { ignoreElements } from 'rxjs/operators';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
