@@ -1,23 +1,28 @@
-<!--<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-12">
-      <app-ticket-filter (ticketList)="ticketListEvent($event)"></app-ticket-filter>
-    </div>
-    <div *ngIf="ticketList" class="col-6 offset-3">
-      <app-ticket-list [ticketList]="ticketList"></app-ticket-list>
+    <div class="col-12 mt-3 text-center">
+      <h1>Ticketek keresése</h1>
     </div>
   </div>
-</div>-->
-
-<div class="container">
   <div class="row">
     <div class="col-12 col-lg-3">
-      <app-ticket-filter (ticketList)="ticketListEvent($event)"></app-ticket-filter>
+      <div class="row">
+        <div class="col-12 mt-5">
+          <app-ticket-filter (ticketList)="ticketListEvent($event)"></app-ticket-filter>
+        </div>
+        <div class="col-12 mt-3 text-center">
+          <button mat-raised-button class="create-button" (click)="openNewTicketDialog()">
+            <i class="fas fa-plus"></i>
+            Ticket létrehozása
+          </button>
+        </div>
+      </div>
     </div>
-    <div *ngIf="isFound" class="col-12 col-lg-9">
+    <div *ngIf="isFound" class="col-12 col-lg-8 offset-lg-1 mt-5">
+      <h3 class="underlined">Találatok</h3>
       <app-ticket-list [ticketList]="ticketList"></app-ticket-list>
     </div>
-    <div *ngIf="!isFound" class="col-12 col-md-6 offset-md-3 text-center">
+    <div *ngIf="!isFound" class="col-12 col-md-6 offset-md-3 text-center mt-5">
       <img src="assets/img/sadbook.png" class="img-fluid sad-img" />
       <div class="sad-text">Sajnos nem talaltunk a kriteriumoknak megfelelo ticketeket.</div>
     </div>

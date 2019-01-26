@@ -4,6 +4,7 @@
     margin-right: auto;
     margin-left: auto;
     background-color: lightgray;
+    min-height: 100vh;
 }
 
 .underlined {

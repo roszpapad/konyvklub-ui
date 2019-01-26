@@ -46,7 +46,7 @@ export class TicketShowComponent implements OnInit {
   }
 
   refreshList() {
-    //this.ngOnInit();
+    
     this.router.navigateByUrl('/dummy', { skipLocationChange: true }).then(
       () => {this.router.navigateByUrl('/tickets/' + this.ticketId );})
   }
@@ -74,7 +74,9 @@ export class TicketShowComponent implements OnInit {
 
     const dialogRef = this.dialog.open(NewOfferDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed().subscribe(
+      data => { if (data) this.refreshList();}
+    );
   }
 
 }

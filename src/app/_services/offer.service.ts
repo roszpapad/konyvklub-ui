@@ -15,4 +15,8 @@ export class OfferService {
   acceptOffer(ticketId, offerId){
     return this.resourceService.getResourceFromApi('/tickets/' + ticketId + '/offers/' + offerId);
   }
+
+  createOffer(ticketId, offerdata){
+    return this.resourceService.postData('/tickets/' + ticketId + '/offer', offerdata);
+  }
 }

@@ -9,3 +9,22 @@
     font-size: 150%;
 }
 
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightgray;
+    min-height: 100vh;
+}
+
+.create-button {
+    background-color: green;
+    color: white;
+}
+
+.underlined {
+    border-bottom: 1px solid black;
+}
+
+

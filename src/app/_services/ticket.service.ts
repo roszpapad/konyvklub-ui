@@ -19,4 +19,8 @@ export class TicketService {
   getTicketById(id){
     return this.resourceService.getResourceFromApi('/tickets/' + id);
   }
+
+  createTicket(ticketdata){
+    return this.resourceService.postData('/tickets/new',ticketdata);
+  }
 }
