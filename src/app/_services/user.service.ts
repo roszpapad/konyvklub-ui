@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { User } from '../_models/user';
 import { AuthenticationService } from './authentication.service';
 import { ResourceService } from './resource.service';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private authencticationService: AuthenticationService, private _resourceService: ResourceService) { }
+  constructor(private authencticationService: AuthenticationService, private _resourceService: ResourceService,
+              private tokenService : TokenService) { }
 
   getUserInfo() {
     return this.authencticationService.getUserInfo();
@@ -32,6 +34,16 @@ export class UserService {
       "oldPassword": oldPass,
       "newPassword": newPass
     })
+  }
+
+  changePicture(data){
+    let userId = this.tokenService.getTokenProperty("id");
+    return this._resourceService.postDataWithContentTypeMultipart("/users/" + userId + "/changePicture", data);
+  }
+
+  getProfilePicture(){
+    let userId = this.tokenService.getTokenProperty("id");
+    return this._resourceService.getResourceFromApiAsText('/users/' + userId + '/picture');
   }
 
 

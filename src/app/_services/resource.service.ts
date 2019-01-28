@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Observable, of, throwError} from 'rxjs';
-import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpParams, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import "rxjs-compat/add/operator/catch";
 import {HttpEvent, HttpRequest} from "../../../node_modules/@angular/common/http";
+import { RequestOptions } from '@angular/http';
 
 const API_URL = environment.apiUrl;
 
@@ -43,6 +44,14 @@ export class ResourceService {
     // );
 
   }
+
+  getResourceFromApiAsText(resourceUrl: string) {
+  
+    return this.http.get(API_URL + resourceUrl , {responseType: 'text'});
+    
+
+  }
+
   getResourceFromApiWithParams(resourceUrl, data) {
     return this.http.get(API_URL + resourceUrl, { params: data });
 
@@ -64,6 +73,11 @@ export class ResourceService {
 
   postData(url, data) {
     return this.http.post(API_URL + url, data);
+  }
+
+  postDataWithContentTypeMultipart(url, data){
+    //let options = { params: {'file' : data}};
+    return this.http.post(API_URL + url,data);
   }
 
 }
