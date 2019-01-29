@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import { Injectable, Output, EventEmitter } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import {environment} from '../../environments/environment';
-import {JwtHelper} from 'angular2-jwt';
-import {TokenService} from './token.service';
-import {ResourceService} from './resource.service';
+import { environment } from '../../environments/environment';
+import { JwtHelper } from 'angular2-jwt';
+import { TokenService } from './token.service';
+import { ResourceService } from './resource.service';
 
 const AUTHORIZATION_URL = environment.authorizationServerUrl + environment.authorizationPath;
 const CLIENT_ID = environment.clientId;
@@ -14,6 +14,8 @@ const CLIENT_SECRET = environment.clientSecret;
   providedIn: 'root'
 })
 export class AuthenticationService {
+
+  @Output() getUserId: EventEmitter<any> = new EventEmitter();
 
   grantType: string = "password";
 
@@ -38,7 +40,12 @@ export class AuthenticationService {
 
     return this.http.post<any>(AUTHORIZATION_URL, params.toString(), httpOptions)
       .pipe(
-        map(data => { if (data && data.access_token) { localStorage.setItem('currentUser', data.access_token); } }
+        map(data => {
+          if (data && data.access_token) {
+            localStorage.setItem('currentUser', data.access_token);
+            this.getUserId.emit(this.tokenService.getTokenProperty("id"));
+          }
+        }
         )
       )
 

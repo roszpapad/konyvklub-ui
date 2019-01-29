@@ -13,12 +13,38 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Rolunk</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Bejelentkezes</a>
+    </ul>
+    <ul class="navbar-nav menu ml-auto">
+      <li class="nav-item" *ngIf="!isAuthenticated()">
+        <a class="nav-link mr-2" [routerLink]="['/notifications']">
+          <i class="far fa-bell" matBadge="15" matBadgeColor="warn"></i>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="!isAuthenticated()">
+        <a class="nav-link" [routerLink]="['/register']">Regisztráció</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="isAuthenticated()">
+        <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img *ngIf="image; else dummyImage" src={{image}} class="profile-img mr-2" /><span>{{getUserName()}}</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/myprofile']">Profilom</a>
+          <a class="dropdown-item" [routerLink]="['/mybooks']">Könyveim</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Üzleteim</a>
+        </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/register']">Regisztracio</a>
+        <a class="nav-link" [routerLink]="['/login']" *ngIf="!isAuthenticated()">Bejelentkezés</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/login']" (click)="logout()" *ngIf="isAuthenticated()">Kijelentkezés</a>
       </li>
     </ul>
   </div>
 </nav>
+
+<ng-template #dummyImage>
+  <img src="assets/img/person.jpg" class="profile-img mr-2" />
+</ng-template>

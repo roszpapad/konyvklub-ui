@@ -75,9 +75,10 @@ export class ResourceService {
     return this.http.post(API_URL + url, data);
   }
 
-  postDataWithContentTypeMultipart(url, data){
-    //let options = { params: {'file' : data}};
-    return this.http.post(API_URL + url,data);
+  postDataAndGetText(url, data) {
+    return this.http.post(API_URL + url, data,{
+      responseType : 'text'
+    });
   }
 
 }

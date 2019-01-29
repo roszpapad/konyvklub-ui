@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
+import { TokenService } from 'src/app/_services/token.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -11,7 +12,8 @@ export class MyProfileComponent implements OnInit {
   file;
   image;
   mySrc;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private tokenService : TokenService) { }
 
   ngOnInit() {
 
@@ -52,7 +54,11 @@ export class MyProfileComponent implements OnInit {
       let imageDTO = {
         'file': this.image
       };
-      this.userService.changePicture(imageDTO).subscribe();
+      this.userService.changePicture(imageDTO).subscribe(
+        data => {
+          this.userService.getUserId.emit(this.tokenService.getTokenProperty("id"));
+        }
+      );
     }
   }
 

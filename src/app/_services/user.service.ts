@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { User } from '../_models/user';
 import { AuthenticationService } from './authentication.service';
 import { ResourceService } from './resource.service';
@@ -8,6 +8,8 @@ import { TokenService } from './token.service';
   providedIn: 'root'
 })
 export class UserService {
+
+  @Output() getUserId: EventEmitter<any> = new EventEmitter();
 
   constructor(private authencticationService: AuthenticationService, private _resourceService: ResourceService,
               private tokenService : TokenService) { }
@@ -38,11 +40,15 @@ export class UserService {
 
   changePicture(data){
     let userId = this.tokenService.getTokenProperty("id");
-    return this._resourceService.postDataWithContentTypeMultipart("/users/" + userId + "/changePicture", data);
+    return this._resourceService.postDataAndGetText("/users/" + userId + "/changePicture", data);
   }
 
   getProfilePicture(){
     let userId = this.tokenService.getTokenProperty("id");
+    return this._resourceService.getResourceFromApiAsText('/users/' + userId + '/picture');
+  }
+
+  getProfilePictureWithId(userId){
     return this._resourceService.getResourceFromApiAsText('/users/' + userId + '/picture');
   }
 

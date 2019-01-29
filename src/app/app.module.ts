@@ -9,6 +9,7 @@ import {
   MatInputModule,
   MatTableModule,
   MatNativeDateModule,
+  MatBadgeModule,
   MatCheckboxModule,
   MatSnackBarModule,
   MatSelectModule,
@@ -36,6 +37,8 @@ import { OfferComponent } from './components/offer/offer.component';
 import { DummyComponent } from './components/dummy/dummy.component';
 import { NewOfferDialogComponent } from './components/new-offer-dialog/new-offer-dialog.component';
 import { NewTicketDialogComponent } from './components/new-ticket-dialog/new-ticket-dialog.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,9 @@ import { NewTicketDialogComponent } from './components/new-ticket-dialog/new-tic
     OfferComponent,
     DummyComponent,
     NewOfferDialogComponent,
-    NewTicketDialogComponent
+    NewTicketDialogComponent,
+    HomeComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ import { NewTicketDialogComponent } from './components/new-ticket-dialog/new-tic
     HttpClientModule,
     FormsModule,
     MatCardModule,
+    MatBadgeModule,
     MatButtonModule,
     MatFormFieldModule,
     MatSnackBarModule,

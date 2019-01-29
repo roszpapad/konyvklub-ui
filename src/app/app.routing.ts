@@ -8,14 +8,18 @@ import { TicketFilterComponent } from './components/ticket-filter/ticket-filter.
 import { BrowseTicketsComponent } from './components/browse-tickets/browse-tickets.component';
 import { TicketShowComponent } from './components/ticket-show/ticket-show.component';
 import { DummyComponent } from './components/dummy/dummy.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 const appRoutes: Routes = [
     {
         path: 'register', component: RegisterComponent
     },
-
     {
-        path: '', component: LoginComponent
+        path: 'notifications', component: NotificationsComponent
+    },
+    {
+        path: '', component: HomeComponent
     },
     {
         path: 'login', component: LoginComponent
