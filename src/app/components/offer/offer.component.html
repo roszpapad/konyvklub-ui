@@ -32,8 +32,10 @@
       </div>
     </div>
   </mat-card-content>
-  <mat-card-actions *ngIf="isOwner && offer.status != 'REJECTED'" class="actions">
+  <mat-card-actions  class="actions">
     <button mat-raised-button (click)="acceptOffer(offer.id)" color="primary">Elfogad</button>
     <button mat-raised-button (click)="rejectOffer(offer.id)" color="warn">Elutasít</button>
   </mat-card-actions>
 </mat-card>
+
+<!--*ngIf="isOwner && offer.status != 'REJECTED'"-->

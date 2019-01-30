@@ -46,13 +46,14 @@ export class TicketShowComponent implements OnInit {
   }
 
   refreshList() {
-    
     this.router.navigateByUrl('/dummy', { skipLocationChange: true }).then(
-      () => {this.router.navigateByUrl('/tickets/' + this.ticketId );})
+      () => {this.router.navigateByUrl('/tickets/' + this.ticketId );});
   }
 
   afterRejected(isRejected: boolean) {
-    this.refreshList();
+    setTimeout(
+      () => {this.refreshList();}, 1000
+    );
   }
 
   afterAccepted(offerId){

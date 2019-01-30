@@ -11,10 +11,12 @@ mat-card {
     margin-bottom: 35px;
 }
 
-.wrapper {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 100vh;
     position: relative;
 }
 

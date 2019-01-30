@@ -39,6 +39,8 @@ import { NewOfferDialogComponent } from './components/new-offer-dialog/new-offer
 import { NewTicketDialogComponent } from './components/new-ticket-dialog/new-ticket-dialog.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { NotificationsComponent } from './components/notifications/notifications
     NewOfferDialogComponent,
     NewTicketDialogComponent,
     HomeComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    NotificationComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

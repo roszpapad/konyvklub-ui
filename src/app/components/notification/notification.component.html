@@ -1,0 +1,21 @@
+<mat-card class="example-card">
+  <mat-card-header class="title-container">
+    <mat-card-title [ngClass]="{
+            'is-accepted': !isRejected,
+            'is-rejected': isRejected
+          }">{{notification.message}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-3">
+    <div class="row">
+      <div class="col-12 text-center details">
+        {{notification.offeredBookName}} ---> {{notification.givenBookName}}
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions *ngIf="isRejected" class="actions">
+    <button mat-raised-button (click)="navigateToTicket(notification.ticketId)" color="primary">Ticket meglátogatása</button>
+  </mat-card-actions>
+  <!--<mat-card-actions *ngIf="!isRejected" class="actions">
+    <button mat-raised-button (click)="goToChat(notification.chatId)" color="primary">Beszélgetés a partnerrel</button>
+  </mat-card-actions>-->
+</mat-card>

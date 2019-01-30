@@ -1,0 +1,20 @@
+mat-card-header {
+    display: flex;
+    justify-content: center;
+}
+
+.is-accepted {
+    color: green;
+}
+
+.is-rejected {
+    color: red;
+}
+
+.actions {
+    text-align: right;
+}
+
+.details {
+    font-size: 200%;
+}

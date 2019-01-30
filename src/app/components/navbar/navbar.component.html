@@ -15,7 +15,7 @@
       </li>
     </ul>
     <ul class="navbar-nav menu ml-auto">
-      <li class="nav-item" *ngIf="!isAuthenticated()">
+      <li class="nav-item" *ngIf="isAuthenticated()">
         <a class="nav-link mr-2" [routerLink]="['/notifications']">
           <i class="far fa-bell" matBadge="15" matBadgeColor="warn"></i>
         </a>
