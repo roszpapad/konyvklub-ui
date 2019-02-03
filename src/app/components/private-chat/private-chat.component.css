@@ -1,0 +1,46 @@
+.chatBox {
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+    height: 70vh;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightgray;
+    min-height: 100vh;
+}
+
+.myMsgDiv {
+    display: flex;
+    justify-content: right;
+}
+
+.notMyMsgDiv {
+    display: flex;
+    justify-content: left;
+}
+
+p.notMyMsg {
+    border-radius: 17%;
+    padding : 10px;
+    background-color: lightgrey;
+    max-width: 40%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+p.myMsg {
+    border-radius: 17%;
+    padding : 10px;
+    background-color: lightgreen;
+    max-width: 40%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+

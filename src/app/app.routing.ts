@@ -10,6 +10,8 @@ import { TicketShowComponent } from './components/ticket-show/ticket-show.compon
 import { DummyComponent } from './components/dummy/dummy.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { PrivateChatComponent } from './components/private-chat/private-chat.component';
 
 const appRoutes: Routes = [
     {
@@ -44,6 +46,12 @@ const appRoutes: Routes = [
     },
     {
         path: 'dummy', component: DummyComponent
+    },
+    {
+        path: 'chat', component: ChatComponent
+    },
+    {
+        path: 'privateChat/:id', component: PrivateChatComponent
     }
 ];
 

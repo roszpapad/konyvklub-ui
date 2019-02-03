@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h3>Privát chat {{getChatPartner()}} felhasználóval</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-10 offset-md-1">
+      <div class="chatBox">
+
+      </div>
+      <mat-form-field class="example-full-width">
+        <input matInput id="messageField" placeholder="Írj egy üzenetet.."/>
+        <button mat-raised-button color='primary' [disabled]='isButtonDisabled()' (click)='sendMessage()'>Küldés</button>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

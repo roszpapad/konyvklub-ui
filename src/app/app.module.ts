@@ -41,6 +41,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { PrivateChatComponent } from './components/private-chat/private-chat.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { ChatComponent } from './components/chat/chat.component';
     HomeComponent,
     NotificationsComponent,
     NotificationComponent,
-    ChatComponent
+    ChatComponent,
+    PrivateChatComponent
   ],
   imports: [
     BrowserModule,

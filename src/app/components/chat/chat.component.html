@@ -1,3 +1,13 @@
-<p>
-  chat works!
-</p>
+<div class="container-fluid">
+  <div class="row" *ngIf="chatChannels">
+    <div class="col-12 col-md-8 offset-md-2" *ngFor="let channel of chatChannels">
+      <a>
+        <mat-card>
+          <mat-card-content>
+            <p>{{getChatPartner(channel)}}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+</div>
