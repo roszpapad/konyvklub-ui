@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/_services/user.service';
 import { Router } from '@angular/router';
 import { PasswordValidator } from 'src/app/validators/password-validator';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
   submit() {
 
     if (this.form.valid) {
-
+      $("#submit-btn").prop("disabled", true);
       this.userService.registerUser({
         'username': this.form.get("username").value,
         'email': this.form.get("email").value,
@@ -48,9 +49,12 @@ export class RegisterComponent implements OnInit {
           'street': this.form.get("street").value
         }
       }).subscribe(
-        result => { this.router.navigate([''],{queryParams : { showSuccessMessage : 'true' }}); },
+        result => { this.router.navigate(['/login'], { queryParams: { showSuccessMessage: 'true' } }); },
 
-        error => { this.myErrors = error.error.errors }
+        error => {
+        this.myErrors = error.error.errors;
+        $("#submit-btn").prop( "disabled", false );
+        }
       );
 
     }

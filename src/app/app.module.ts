@@ -42,6 +42,7 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { NotificationComponent } from './components/notification/notification.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { PrivateChatComponent } from './components/private-chat/private-chat.component';
+import { BanUsersComponent } from './components/ban-users/ban-users.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { PrivateChatComponent } from './components/private-chat/private-chat.com
     NotificationsComponent,
     NotificationComponent,
     ChatComponent,
-    PrivateChatComponent
+    PrivateChatComponent,
+    BanUsersComponent
   ],
   imports: [
     BrowserModule,

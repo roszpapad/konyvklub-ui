@@ -22,8 +22,8 @@ export class UserService {
     return this._resourceService.postData('/register', user);
   }
 
-  getAllUsers() {
-    return this._resourceService.getResourceFromApi('/users');
+  getAllUsersFiltered(username) {
+    return this._resourceService.getResourceFromApiWithParams('/users/filtered',{username});
   }
 
   deleteUser(userId) {

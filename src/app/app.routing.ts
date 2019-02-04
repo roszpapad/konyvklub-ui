@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { PrivateChatComponent } from './components/private-chat/private-chat.component';
+import { BanUsersComponent } from './components/ban-users/ban-users.component';
 
 const appRoutes: Routes = [
     {
@@ -52,6 +53,9 @@ const appRoutes: Routes = [
     },
     {
         path: 'privateChat/:id', component: PrivateChatComponent
+    },
+    {
+        path: 'banUsers', component: BanUsersComponent
     }
 ];
 
