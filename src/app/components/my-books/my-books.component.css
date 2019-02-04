@@ -9,3 +9,12 @@ table {
     font-size: 200%;
     float : right;
 }
+
+.container-fluid {
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightgray;
+    min-height: 100vh;
+}

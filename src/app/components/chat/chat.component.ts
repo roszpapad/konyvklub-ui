@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/_services/token.service';
 import { ChatService } from 'src/app/_services/chat.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -13,7 +14,8 @@ export class ChatComponent implements OnInit {
   chatChannels;
 
   constructor(private tokenService: TokenService,
-    private chatService: ChatService) { }
+    private chatService: ChatService,
+    private router : Router) { }
 
   ngOnInit() {
     this.username = this.tokenService.getTokenProperty("user_name");
@@ -33,4 +35,7 @@ export class ChatComponent implements OnInit {
     }
   }
 
+  navigateToChat(channelId){
+    this.router.navigateByUrl("/privateChat/" + channelId);
+  }
 }

@@ -14,17 +14,9 @@
     min-height: 100vh;
 }
 
-.myMsgDiv {
-    display: flex;
-    justify-content: right;
-}
-
-.notMyMsgDiv {
-    display: flex;
-    justify-content: left;
-}
-
 p.notMyMsg {
+    float: left;
+    clear: both;
     border-radius: 17%;
     padding : 10px;
     background-color: lightgrey;
@@ -35,10 +27,22 @@ p.notMyMsg {
 }
 
 p.myMsg {
+    float: right;
+    clear: both;
     border-radius: 17%;
     padding : 10px;
     background-color: lightgreen;
     max-width: 40%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+mat-form-field {
+    width: 90%;
+}
+
+#messageField {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;

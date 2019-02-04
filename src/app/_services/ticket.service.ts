@@ -8,8 +8,8 @@ export class TicketService {
 
   constructor(private resourceService : ResourceService) { }
 
-  filterTickets(title, writer){
-    return this.resourceService.getResourceFromApiWithParams('/tickets/filter',{title, writer});
+  filterTickets(title, writer, city){
+    return this.resourceService.getResourceFromApiWithParams('/tickets/filter',{title, writer, city});
   }
 
   getAllTickets(){

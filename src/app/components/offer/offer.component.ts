@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { OfferService } from 'src/app/_services/offer.service';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-offer',
@@ -7,6 +8,8 @@ import { OfferService } from 'src/app/_services/offer.service';
   styleUrls: ['./offer.component.css']
 })
 export class OfferComponent implements OnInit {
+
+  image;
 
   @Input() offer;
 
@@ -18,11 +21,13 @@ export class OfferComponent implements OnInit {
 
   isRejected;
 
-  constructor(private offerService: OfferService) { }
+  constructor(private offerService: OfferService,
+              private userService : UserService) { }
 
   ngOnInit() {
 
     this.setIsRejected();
+    setTimeout(() => { this.getUserPicture(); }, 500);
   }
 
   setIsRejected() {
@@ -49,6 +54,16 @@ export class OfferComponent implements OnInit {
 
   acceptOffer(offerId){
     this.acceptedEvent.emit(offerId); 
+  }
+
+  getUserPicture() {
+    let userId = this.offer.customer.id;
+    this.userService.getProfilePictureWithId(userId).subscribe(
+      data => {
+        if (data) {
+          this.image = data;
+        }
+      });
   }
 
 }

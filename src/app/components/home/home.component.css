@@ -1,0 +1,57 @@
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-img {
+    height: 140px;
+    width: auto;
+}
+
+h1 {
+    font-size: 400%;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightgray;
+    min-height: 100vh;
+}
+
+.cite-text {
+    font-size : 150%;
+}
+
+.cite-author {
+    font-style: italic;
+    text-align: right;
+}
+
+@media only screen and (max-width: 580px){
+    .logo-img {
+        height: 100px;
+        width: auto;
+    }
+    
+    h1 {
+        font-size: 270%;
+    }
+}
+
+@media only screen and (max-width: 430px){
+    .logo-img {
+        height: 70px;
+        width: auto;
+    }
+    
+    h1 {
+        font-size: 170%;
+    }
+
+    .cite-text {
+        font-size : 110%;
+    }
+}

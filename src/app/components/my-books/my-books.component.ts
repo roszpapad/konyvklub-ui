@@ -19,8 +19,8 @@ export class MyBooksComponent implements OnInit {
 
     breakpointObserver.observe(['(max-width: 600px)']).subscribe(result => {
       this.displayedColumns = result.matches ?
-        ['title','delete'] :
-        ['title', 'writer', 'publisher', 'yearOfPublishing', 'offerable','delete'];
+        ['title', 'delete'] :
+        ['title', 'writer', 'publisher', 'yearOfPublishing', 'offerable', 'delete'];
     });
   }
 
@@ -48,14 +48,19 @@ export class MyBooksComponent implements OnInit {
       data => { if (data) { } },
       error => { },
       () => {
-        this.ngOnInit();
+        setTimeout(() => {
+          this.ngOnInit();
+        }, 600);
+
       }
     );
   }
 
   deleteBook(bookId) {
     this.bookService.deleteBook(bookId).subscribe();
-    this.ngOnInit();
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 600);
   }
 
   isOfferable(offerable) {

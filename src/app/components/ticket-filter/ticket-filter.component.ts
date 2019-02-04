@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder} from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { TicketService } from 'src/app/_services/ticket.service';
 
 @Component({
@@ -9,32 +9,34 @@ import { TicketService } from 'src/app/_services/ticket.service';
 })
 export class TicketFilterComponent implements OnInit {
 
-  form : FormGroup;
+  form: FormGroup;
 
-  @Output() ticketList : EventEmitter<any> = new EventEmitter<any>();
+  @Output() ticketList: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private formBuilder : FormBuilder,
-              private ticketService : TicketService) { }
+  constructor(private formBuilder: FormBuilder,
+    private ticketService: TicketService) { }
 
   ngOnInit() {
 
     this.form = this.formBuilder.group({
-      title : [''],
-      writer : [''],
-      owned : [false]
+      title: [''],
+      writer: [''],
+      city: [''],
+      owned: [false]
     });
   }
 
-  submit(){
-    this.ticketService.filterTickets(this.form.get("title").value, this.form.get("writer").value).subscribe(
+  submit() {
+    this.ticketService.filterTickets(this.form.get("title").value, this.form.get("writer").value, this.form.get("city").value).subscribe(
       data => {
         this.ticketList.emit(data);
       }
     );
   }
 
-  get title() {return this.form.get("title");}
-  get writer(){return this.form.get("writer");}
-  get owned(){return this.form.get("owned");}
+  get title() { return this.form.get("title"); }
+  get writer() { return this.form.get("writer"); }
+  get owned() { return this.form.get("owned"); }
+  get city() { return this.form.get("city"); }
 
 }

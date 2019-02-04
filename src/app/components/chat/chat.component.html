@@ -1,13 +1,20 @@
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-10 offset-1 mt-3 mb-3 underlined">
+      <h2>Beszélgetések</h2>
+    </div>
+  </div>
   <div class="row" *ngIf="chatChannels">
-    <div class="col-12 col-md-8 offset-md-2" *ngFor="let channel of chatChannels">
-      <a>
-        <mat-card>
-          <mat-card-content>
-            <p>{{getChatPartner(channel)}}</p>
-          </mat-card-content>
-        </mat-card>
-      </a>
+    <div class="col-12 col-md-8 offset-md-2 mt-3" *ngFor="let channel of chatChannels">
+      <mat-card>
+        <mat-card-content>
+          <p>Üzletpartner: {{getChatPartner(channel)}}</p>
+          <p>Csere részletek: {{channel.bookToSell}} <i class="fas fa-forward ml-2 mr-2"></i> {{channel.bookToPay}}</p>
+        </mat-card-content>
+        <mat-card-actions class="actions">
+          <button mat-raised-button color="primary" (click)="navigateToChat(channel.id)">Ugrás a beszélgetéshez</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 </div>

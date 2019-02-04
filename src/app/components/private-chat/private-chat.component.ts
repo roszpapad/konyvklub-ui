@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import * as $ from 'jquery';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-private-chat',
@@ -19,12 +20,19 @@ export class PrivateChatComponent implements OnInit {
   messages;
   stompClient;
   channel;
+  form;
+  bookToSell;
+  bookToPay;
 
   constructor(private tokenService: TokenService,
     private chatService: ChatService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      message: ['']
+    });
     this.stompClient = null;
     this.username = this.tokenService.getTokenProperty("user_name");
     this.route.params.subscribe(params => {
@@ -33,8 +41,12 @@ export class PrivateChatComponent implements OnInit {
     this.chatService.getChannelById(this.channelId).subscribe(
       data => {
         this.channel = data;
-        this.connectToWS();
-        this.putMessagesOnChatBox();
+        this.bookToSell = this.channel.bookToSell;
+        this.bookToPay = this.channel.bookToPay;
+        if (this.isUserInTheChat()) {
+          this.connectToWS();
+          this.putMessagesOnChatBox();
+        }
       }
     );
 
@@ -47,7 +59,7 @@ export class PrivateChatComponent implements OnInit {
     let that = this;
     this.stompClient.connect({}, function (frame) {
 
-      that.stompClient.subscribe('/topic/chat' /* /' + this.channelId*/, (messageGot) => {
+      that.stompClient.subscribe('/topic/chat/' + that.channelId, (messageGot) => {
 
         that.putMessageToPage(JSON.parse(messageGot.body));
       });
@@ -76,12 +88,11 @@ export class PrivateChatComponent implements OnInit {
 
   putMessageToPage(messageGot) {
     if (this.isMyMessage(messageGot)) {
-      $('.chatBox').append("<div class='myMsgDiv mt-2'><p class='myMsg'>" + messageGot.message + "</p></div>");
+      $('.chatBox').append("<div class='myMsgDiv mt-1'><p class='myMsg'>" + messageGot.message + "</p></div>");
     } else {
-      $('.chatBox').append("<div class='notMyMsgDiv mt-2'><p class='notMyMsg'>" + messageGot.message + "</p></div>");
+      $('.chatBox').append("<div class='notMyMsgDiv mt-1'><p class='notMyMsg'>" + messageGot.message + "</p></div>");
     }
     this.scrollToTheEnd();
-    //$(".chatBox").append("<p>" + messageGot.message + "</p>");
   }
 
   putMessagesOnChatBox() {
@@ -105,8 +116,11 @@ export class PrivateChatComponent implements OnInit {
     }
   }
 
+  isUserInTheChat() {
+    return this.username == this.channel.usernameOne || this.username == this.channel.usernameTwo;
+  }
+
   getMessage() {
-    console.log("BENT");
     let message = $("#messageField").val();
     $("#messageField").val('');
     return message;
@@ -116,5 +130,7 @@ export class PrivateChatComponent implements OnInit {
     var objDiv = document.getElementsByClassName("chatBox")[0];
     objDiv.scrollTop = objDiv.scrollHeight;
   }
+
+  get message() { return this.form.get("message"); }
 
 }

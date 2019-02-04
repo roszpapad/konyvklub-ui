@@ -30,4 +30,8 @@ export class NotificationComponent implements OnInit {
     }
   }
 
+  goToChat(chatId){
+    this.router.navigateByUrl("/privateChat/" + chatId);
+  }
+
 }

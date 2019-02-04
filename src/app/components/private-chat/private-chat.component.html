@@ -1,18 +1,21 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="isUserInTheChat()">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 text-center mt-3 mb-3">
       <h3>Privát chat {{getChatPartner()}} felhasználóval</h3>
+      <h5>{{bookToSell}} <i class="fas fa-forward ml-2 mr-2"></i> {{bookToPay}}</h5>
     </div>
   </div>
-  <div class="row">
+  <div class="row text-center">
     <div class="col-12 col-md-10 offset-md-1">
       <div class="chatBox">
 
       </div>
-      <mat-form-field class="example-full-width">
-        <input matInput id="messageField" placeholder="Írj egy üzenetet.."/>
-        <button mat-raised-button color='primary' [disabled]='isButtonDisabled()' (click)='sendMessage()'>Küldés</button>
-      </mat-form-field>
+      <form [formGroup]="form" (ngSubmit)="sendMessage()">
+        <mat-form-field class="float-left">
+          <input matInput id="messageField" formControlName="message" placeholder="Írj egy üzenetet.."/>
+        </mat-form-field>
+        <button type="submit" class="float-left mt-2 ml-3" mat-raised-button color='primary' [disabled]='isButtonDisabled()'>Küldés</button>
+      </form>
     </div>
   </div>
 </div>
