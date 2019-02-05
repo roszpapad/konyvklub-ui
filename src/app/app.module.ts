@@ -43,6 +43,8 @@ import { NotificationComponent } from './components/notification/notification.co
 import { ChatComponent } from './components/chat/chat.component';
 import { PrivateChatComponent } from './components/private-chat/private-chat.component';
 import { BanUsersComponent } from './components/ban-users/ban-users.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ChangeProfilePicComponent } from './components/change-profile-pic/change-profile-pic.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,8 @@ import { BanUsersComponent } from './components/ban-users/ban-users.component';
     NotificationComponent,
     ChatComponent,
     PrivateChatComponent,
-    BanUsersComponent
+    BanUsersComponent,
+    ChangeProfilePicComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +92,7 @@ import { BanUsersComponent } from './components/ban-users/ban-users.component';
     MatIconModule,
     MatDatepickerModule,
     MatDialogModule,
+    ImageCropperModule,
     routing
   ],
   providers: [

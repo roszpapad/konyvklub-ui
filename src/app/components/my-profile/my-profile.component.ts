@@ -9,57 +9,14 @@ import { TokenService } from 'src/app/_services/token.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  file;
-  image;
-  mySrc;
-  constructor(private userService: UserService,
-              private tokenService : TokenService) { }
+  constructor() { }
 
   ngOnInit() {
-
-    this.file = null;
-    this.userService.getProfilePicture().subscribe(
-      data => { if (data) this.mySrc = data; else this.mySrc = ''; }
-    );
     
   }
 
-  fileChange(event) {
+  
 
-    this.readImage(event.target);
-  }
-
-  readImage(input) {
-    this.file = input.files[0];
-
-    var myReader: FileReader = new FileReader();
-
-    myReader.onloadend = (e) => {
-      this.image = myReader.result;
-    }
-
-    myReader.readAsDataURL(this.file);
-  }
-
-  isFileChosen() {
-    return this.file != null;
-  }
-
-  submit() {
-    if (this.file != null) {
-
-      /*let formData:FormData = new FormData();
-        formData.append('file', this.file, this.file.name);*/
-
-      let imageDTO = {
-        'file': this.image
-      };
-      this.userService.changePicture(imageDTO).subscribe(
-        data => {
-          this.userService.getUserId.emit(this.tokenService.getTokenProperty("id"));
-        }
-      );
-    }
-  }
+  
 
 }

@@ -13,6 +13,7 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { ChatComponent } from './components/chat/chat.component';
 import { PrivateChatComponent } from './components/private-chat/private-chat.component';
 import { BanUsersComponent } from './components/ban-users/ban-users.component';
+import { ChangeProfilePicComponent } from './components/change-profile-pic/change-profile-pic.component';
 
 const appRoutes: Routes = [
     {
@@ -56,6 +57,9 @@ const appRoutes: Routes = [
     },
     {
         path: 'banUsers', component: BanUsersComponent
+    },
+    {
+        path: 'changePicture', component: ChangeProfilePicComponent
     }
 ];
 

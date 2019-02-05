@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 mt-3 text-center">
+      <h2>Profilkép megváltoztatása</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-3 text-center lined mt-5">
+      <h3 class="mb-5">1. Profilkép kiválasztása</h3>
+      <input type="file" (change)="fileChangeEvent($event)" name="file" id="file" class="inputfile" accept=".png,.jpg,.jpeg" />
+      <label for="file" class="mt-5">Válasszon egy képet</label>
+    </div>
+    <div class="col-12 col-md-6 text-center lined mt-5">
+      <h3 class="mb-4">2. Profilkép kivágása</h3>
+      <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1 / 1"
+        [resizeToWidth]="128" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+        (loadImageFailed)="loadImageFailed()"></image-cropper>
+    </div>
+
+    <div class="col-12 col-md-3 text-center mt-5">
+      <h3 class="mb-4">3. Profilkép megváltoztatása</h3>
+      <img class="profile-pic mt-5" [src]="croppedImage" />
+      <button (click)="changeProfilePicture()" class="mt-4" mat-raised-button color="primary" *ngIf="croppedImage != ''">Megváltoztatás</button>
+    </div>
+  </div>
+</div>
