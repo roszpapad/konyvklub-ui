@@ -1,11 +1,30 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 text-center">
-      <h2>FILTER IDE</h2>
+    <div class="col-12 text-center mt-4 mb-5">
+      <h2>Felhasználó letiltása/visszaállítása</h2>
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-10 offset-md-1">
+    <div class="col-12 col-lg-4 text-center mb-3">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h3>Kereső</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form (ngSubmit)="submit()" [formGroup]="form">
+            <mat-form-field class="example-full-width">
+              <input matInput id="username" placeholder="Felhasználónév" formControlName="username" required>
+              <a matSuffix (click)="submit()"><mat-icon>search</mat-icon></a>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+    <div *ngIf="users" class="col-12 col-lg-6 offset-lg-1">
       <table mat-table class="text-center" [dataSource]="users" class="mat-elevation-z8">
 
         <ng-container matColumnDef="username">
@@ -16,13 +35,13 @@
 
         <ng-container matColumnDef="isActive">
           <th mat-header-cell *matHeaderCellDef>Státusz</th>
-          <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+          <td mat-cell *matCellDef="let element"> {{showIsActive(element.active)}} </td>
         </ng-container>
 
         <ng-container matColumnDef="ban">
           <th mat-header-cell *matHeaderCellDef>Tiltás</th>
           <td mat-cell *matCellDef="let element"><button class="delete-btn" [disabled]="!element.active"
-              mat-raised-button color="warn" (click)="deleteBook(element.id)">
+              mat-raised-button color="warn" (click)="switchStatus(element.id)">
               <i class="fas fa-times"></i>
             </button></td>
         </ng-container>
@@ -30,7 +49,7 @@
         <ng-container matColumnDef="unban">
           <th mat-header-cell *matHeaderCellDef>Visszaállítás</th>
           <td mat-cell *matCellDef="let element"><button class="delete-btn" [disabled]="element.active"
-              mat-raised-button color="primary" (click)="deleteBook(element.id)">
+              mat-raised-button color="primary" (click)="switchStatus(element.id)">
               <i class="fas fa-check"></i>
             </button></td>
         </ng-container>

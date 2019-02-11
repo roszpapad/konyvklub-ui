@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/_services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ban-users',
@@ -9,28 +10,29 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class BanUsersComponent implements OnInit {
 
-  form : FormGroup;
+  form: FormGroup;
   users;
   displayedColumns: string[];
 
-  constructor(private userService : UserService,
-              private formBuilder : FormBuilder) { }
+  constructor(private userService: UserService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
-    this.userService.getAllUsersFiltered("roszpapa").subscribe(
+    /*this.userService.getAllUsersFiltered("roszpapa").subscribe(
       data => {
         this.users = data;
       }
-    );
-    this.displayedColumns = ['username','isActive','ban','unban'];
+    );*/
+    this.displayedColumns = ['username', 'isActive', 'ban', 'unban'];
     this.form = this.formBuilder.group({
-      username : ['', Validators.required]
+      username: ['', Validators.required]
     });
 
   }
 
-  submit(){
-    if (this.form.valid){
+  submit() {
+    if (this.form.valid) {
       this.userService.getAllUsersFiltered(this.form.get("username").value).subscribe(
         data => {
           this.users = data;
@@ -39,6 +41,22 @@ export class BanUsersComponent implements OnInit {
     }
   }
 
+  showIsActive(isActive){
+    return isActive ? "Aktív" : "Letiltott";
+  }
 
-  get username(){return this.form.get("username");}
+  switchStatus(userId) {
+    this.userService.switchStatus(userId).subscribe(
+      data => {
+        if (this.form.valid) {
+          this.submit();
+        } else {
+          this.router.navigateByUrl('/dummy', { skipLocationChange: true }).then(
+            () => { this.router.navigateByUrl('/banUsers'); });
+        }
+      }
+    );
+  }
+
+  get username() { return this.form.get("username"); }
 }

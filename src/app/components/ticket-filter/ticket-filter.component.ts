@@ -27,7 +27,8 @@ export class TicketFilterComponent implements OnInit {
   }
 
   submit() {
-    this.ticketService.filterTickets(this.form.get("title").value, this.form.get("writer").value, this.form.get("city").value).subscribe(
+    this.ticketService
+    .filterTickets(this.form.get("title").value, this.form.get("writer").value, this.form.get("city").value, this.form.get("owned").value).subscribe(
       data => {
         this.ticketList.emit(data);
       }

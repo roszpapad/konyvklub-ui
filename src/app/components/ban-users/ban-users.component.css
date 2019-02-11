@@ -10,3 +10,16 @@
 table {
     width: 100%;
 }
+
+mat-form-field {
+    width: 90%;
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+mat-card-header {
+    display: flex;
+    justify-content: center;
+}
