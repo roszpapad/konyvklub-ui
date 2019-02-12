@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Felhasználó jelentése</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <mat-card>
+        <mat-card-content>
+          <h5>Kérem adja meg a feljelenteni kívánt személyt, és egy képet is, bizonyítékként.</h5>
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <mat-form-field class="example-full-width">
+              <input matInput id="reported" placeholder="Feljelenteni kívánt felhasználó" formControlName="reported"
+                required>
+              <mat-error *ngIf="reported.invalid && (reported.dirty || reported.touched) && reported.errors.required">
+                Kérjük adja meg a feljelenteni kívánt felhasználót!
+              </mat-error>
+            </mat-form-field>
+            <input type="file" (change)="onChange($event)" name="file" id="file" class="inputfile" accept=".png,.jpg,.jpeg" />
+            <label for="file">Válasszon egy képet</label>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

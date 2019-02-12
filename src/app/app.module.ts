@@ -45,6 +45,8 @@ import { PrivateChatComponent } from './components/private-chat/private-chat.com
 import { BanUsersComponent } from './components/ban-users/ban-users.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ChangeProfilePicComponent } from './components/change-profile-pic/change-profile-pic.component';
+import { ReportUserComponent } from './components/report-user/report-user.component';
+import { ReportListComponent } from './components/report-list/report-list.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { ChangeProfilePicComponent } from './components/change-profile-pic/chang
     ChatComponent,
     PrivateChatComponent,
     BanUsersComponent,
-    ChangeProfilePicComponent
+    ChangeProfilePicComponent,
+    ReportUserComponent,
+    ReportListComponent
   ],
   imports: [
     BrowserModule,

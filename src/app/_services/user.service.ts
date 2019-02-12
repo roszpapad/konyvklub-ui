@@ -52,8 +52,8 @@ export class UserService {
     return this._resourceService.getResourceFromApiAsText('/users/' + userId + '/picture');
   }
 
-  switchStatus(userId){
-    return this._resourceService.getResourceFromApiAsText('/user/' + userId + '/switchActive');
+  switchStatus(username){
+    return this._resourceService.getResourceFromApiAsText('/user/' + username + '/switchActive');
   }
 
 

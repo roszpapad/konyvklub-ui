@@ -45,8 +45,8 @@ export class BanUsersComponent implements OnInit {
     return isActive ? "Aktív" : "Letiltott";
   }
 
-  switchStatus(userId) {
-    this.userService.switchStatus(userId).subscribe(
+  switchStatus(username) {
+    this.userService.switchStatus(username).subscribe(
       data => {
         if (this.form.valid) {
           this.submit();

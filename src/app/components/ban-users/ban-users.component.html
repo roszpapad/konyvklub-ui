@@ -41,7 +41,7 @@
         <ng-container matColumnDef="ban">
           <th mat-header-cell *matHeaderCellDef>Tiltás</th>
           <td mat-cell *matCellDef="let element"><button class="delete-btn" [disabled]="!element.active"
-              mat-raised-button color="warn" (click)="switchStatus(element.id)">
+              mat-raised-button color="warn" (click)="switchStatus(element.username)">
               <i class="fas fa-times"></i>
             </button></td>
         </ng-container>
@@ -49,7 +49,7 @@
         <ng-container matColumnDef="unban">
           <th mat-header-cell *matHeaderCellDef>Visszaállítás</th>
           <td mat-cell *matCellDef="let element"><button class="delete-btn" [disabled]="element.active"
-              mat-raised-button color="primary" (click)="switchStatus(element.id)">
+              mat-raised-button color="primary" (click)="switchStatus(element.username)">
               <i class="fas fa-check"></i>
             </button></td>
         </ng-container>
