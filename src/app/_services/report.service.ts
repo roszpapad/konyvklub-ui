@@ -15,4 +15,8 @@ export class ReportService {
   filterReportsByReported(reported){
     return this.resourceService.getResourceFromApiWithParams("/reports/filtered",{reported});
   }
+
+  getAllReports(){
+    return this.resourceService.getResourceFromApi("/reports/all");
+  }
 }

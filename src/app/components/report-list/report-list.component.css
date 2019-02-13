@@ -1,0 +1,35 @@
+.report-image{
+    max-height: 70px;
+    width: auto;
+}
+
+.mat-cell {
+    padding: 5px 30px;
+}
+
+.image-parent {
+    position: relative;
+}
+
+.hidden-image {
+    display: none;
+    position: absolute;
+    max-height: 800px;
+    width: auto;
+    z-index: 1;
+    top: -200%;
+    left: -400%;
+}
+
+.image-parent:hover .hidden-image {
+    display: block;
+}
+
+.container-fluid {
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightgray;
+    min-height: 100vh;
+}

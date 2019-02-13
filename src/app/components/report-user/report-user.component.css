@@ -28,3 +28,11 @@
     background-color: lightgray;
     min-height: 100vh;
 }
+
+.actions {
+    text-align: center;
+}
+
+mat-form-field {
+    width: 60%;
+}

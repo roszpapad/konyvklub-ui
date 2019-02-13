@@ -56,5 +56,4 @@ export class UserService {
     return this._resourceService.getResourceFromApiAsText('/user/' + username + '/switchActive');
   }
 
-
 }

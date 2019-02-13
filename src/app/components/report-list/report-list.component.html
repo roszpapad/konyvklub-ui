@@ -1,3 +1,63 @@
-<p>
-  report-list works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center mt-4 mb-5">
+      <h2>Tiltási kérések</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-4 text-center mb-3">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h3>Kereső</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form (ngSubmit)="submit()" [formGroup]="form">
+            <mat-form-field class="example-full-width">
+              <input matInput id="reported" placeholder="Jelentett személy" formControlName="reported" required>
+              <a matSuffix (click)="submit()">
+                <mat-icon>search</mat-icon>
+              </a>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+    <div *ngIf="reports" class="col-12 col-lg-6 offset-lg-1">
+      <table mat-table class="text-center" [dataSource]="reports" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="reporter">
+          <th mat-header-cell *matHeaderCellDef>Feljelentő</th>
+          <td mat-cell *matCellDef="let element"> {{element.reporter}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="reported">
+          <th mat-header-cell *matHeaderCellDef>Feljelentett</th>
+          <td mat-cell *matCellDef="let element"> {{element.reported}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef>Indíték</th>
+          <td class="image-cell" mat-cell *matCellDef="let element">
+            <p class="image-parent"><img src={{element.image}} class="report-image" />
+              <img src={{element.image}} class="hidden-image" /></p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ban">
+          <th mat-header-cell *matHeaderCellDef>Blokkolás</th>
+          <td mat-cell *matCellDef="let element"><button class="delete-btn" mat-raised-button color="primary" (click)="switchStatus(element.reported)">
+              <i class="fas fa-times"></i>
+            </button></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+</div>
