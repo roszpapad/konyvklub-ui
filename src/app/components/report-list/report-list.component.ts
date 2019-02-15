@@ -27,6 +27,7 @@ export class ReportListComponent implements OnInit {
         this.reports = data;
       }
     );
+    
     this.displayedColumns = ['reporter', 'reported', 'image', 'ban'];
     this.form = this.formBuilder.group({
       reported: ['', Validators.required]

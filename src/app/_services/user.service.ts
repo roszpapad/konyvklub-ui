@@ -52,8 +52,22 @@ export class UserService {
     return this._resourceService.getResourceFromApiAsText('/users/' + userId + '/picture');
   }
 
+  getProfilePictureWithUsername(username){
+    return this._resourceService.getResourceFromApiAsText('/users/' + username + '/pictureByUsername');
+  }
+
   switchStatus(username){
     return this._resourceService.getResourceFromApiAsText('/user/' + username + '/switchActive');
+  }
+
+  getUserOffers(){
+    let userId = this.tokenService.getTokenProperty("id");
+    return this._resourceService.getResourceFromApi('/users/' + userId + '/offers');
+  }
+
+  getUserTickets(){
+    let userId = this.tokenService.getTokenProperty("id");
+    return this._resourceService.getResourceFromApi('/users/' + userId + '/tickets');
   }
 
 }

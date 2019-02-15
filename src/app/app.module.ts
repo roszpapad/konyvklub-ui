@@ -47,6 +47,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { ChangeProfilePicComponent } from './components/change-profile-pic/change-profile-pic.component';
 import { ReportUserComponent } from './components/report-user/report-user.component';
 import { ReportListComponent } from './components/report-list/report-list.component';
+import { FriendRequestsComponent } from './components/friend-requests/friend-requests.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { ReportListComponent } from './components/report-list/report-list.compon
     BanUsersComponent,
     ChangeProfilePicComponent,
     ReportUserComponent,
-    ReportListComponent
+    ReportListComponent,
+    FriendRequestsComponent
   ],
   imports: [
     BrowserModule,

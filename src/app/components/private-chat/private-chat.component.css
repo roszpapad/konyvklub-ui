@@ -48,3 +48,8 @@ mat-form-field {
     hyphens: auto;
 }
 
+.add-friend-button{
+    color: white;
+    background-color: green;
+}
+

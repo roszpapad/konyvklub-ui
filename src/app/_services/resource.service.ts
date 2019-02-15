@@ -57,6 +57,11 @@ export class ResourceService {
 
   }
 
+  getResourceFromApiAsTextWithParams(resourceUrl, data) {
+    return this.http.get(API_URL + resourceUrl, { params: data, responseType: 'text' });
+
+  }
+
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     console.log("meghivodott resource");
     let formdata: FormData = new FormData();

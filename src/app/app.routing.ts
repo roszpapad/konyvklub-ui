@@ -16,6 +16,7 @@ import { BanUsersComponent } from './components/ban-users/ban-users.component';
 import { ChangeProfilePicComponent } from './components/change-profile-pic/change-profile-pic.component';
 import { ReportUserComponent } from './components/report-user/report-user.component';
 import { ReportListComponent } from './components/report-list/report-list.component';
+import { FriendRequestsComponent } from './components/friend-requests/friend-requests.component';
 
 const appRoutes: Routes = [
     {
@@ -68,6 +69,9 @@ const appRoutes: Routes = [
     },
     {
         path: 'reports', component: ReportListComponent
+    },
+    {
+        path: 'friendRequests', component: FriendRequestsComponent
     }
 ];
 

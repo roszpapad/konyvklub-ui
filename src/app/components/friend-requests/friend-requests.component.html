@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2>Barátkérések</h2>
+    </div>
+  </div>
+  <div class="row" *ngIf="requestsGot.length > 0">
+    <div class="col-12 col-md-6 offset-md-1" *ngFor="let request of requestsGot">
+      <mat-card>
+        <mat-card-content>
+          <p>{{request.requestStarter}}</p>
+        </mat-card-content>
+        <mat-card-actions class="actions">
+          <button mat-raised-button color="primary" (click)="acceptRequest(request.id)">
+            <mat-icon>done</mat-icon>
+          </button>
+          <button mat-raised-button color="warn" (click)="rejectRequest(request.id)"><i class="fas fa-times"></i></button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

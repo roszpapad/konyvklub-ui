@@ -35,6 +35,14 @@ export class NavbarComponent implements OnInit {
     return this.authenticationService.isAuthenticated();
   }
 
+  isAdmin(){
+    return this.authenticationService.isAdmin();
+  }
+
+  isUser(){
+    return this.authenticationService.isUser();
+  }
+
   getUserName() {
     return this.tokenService.getTokenProperty("user_name");
   }

@@ -19,11 +19,7 @@ export class BanUsersComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    /*this.userService.getAllUsersFiltered("roszpapa").subscribe(
-      data => {
-        this.users = data;
-      }
-    );*/
+    
     this.displayedColumns = ['username', 'isActive', 'ban', 'unban'];
     this.form = this.formBuilder.group({
       username: ['', Validators.required]

@@ -26,7 +26,7 @@
     </div>
 
 
-    <div *ngIf="reports" class="col-12 col-lg-6 offset-lg-1">
+    <div *ngIf="reports.length > 0" class="col-12 col-lg-6 offset-lg-1">
       <table mat-table class="text-center" [dataSource]="reports" class="mat-elevation-z8">
 
         <ng-container matColumnDef="reporter">

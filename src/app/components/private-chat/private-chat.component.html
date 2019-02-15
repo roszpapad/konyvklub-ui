@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-12 text-center mt-3 mb-3">
       <h3>Privát chat {{getChatPartner()}} felhasználóval</h3>
-      <h5>{{bookToSell}} <i class="fas fa-forward ml-2 mr-2"></i> {{bookToPay}}</h5>
+      <h5 *ngIf="bookToSell">{{bookToSell}} <i class="fas fa-forward ml-2 mr-2"></i> {{bookToPay}}</h5>
+      <button class="float-right add-friend-button" (click)="addFriend()" *ngIf="areNotFriends" mat-raised-button><i class="fas fa-plus"></i> Felvétel barátnak</button>
     </div>
   </div>
   <div class="row text-center">

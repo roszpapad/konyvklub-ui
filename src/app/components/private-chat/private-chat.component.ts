@@ -6,6 +6,7 @@ import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import * as $ from 'jquery';
 import { FormBuilder, Validators } from '@angular/forms';
+import { FriendRequestService } from 'src/app/_services/friend-request.service';
 
 @Component({
   selector: 'app-private-chat',
@@ -23,11 +24,13 @@ export class PrivateChatComponent implements OnInit {
   form;
   bookToSell;
   bookToPay;
+  areNotFriends;
 
   constructor(private tokenService: TokenService,
     private chatService: ChatService,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private friendRequestService : FriendRequestService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -46,11 +49,32 @@ export class PrivateChatComponent implements OnInit {
         if (this.isUserInTheChat()) {
           this.connectToWS();
           this.putMessagesOnChatBox();
+          this.setAreNotFriends();
         }
       }
     );
 
 
+  }
+
+  addFriend(){
+    let createRequestDTO = {
+      "requestStarter" : this.username,
+      "requestDestination" : this.getChatPartner()
+    };
+    this.friendRequestService.createRequest(createRequestDTO).subscribe(
+      data => {
+        this.areNotFriends = false;
+      }
+    );
+  }
+
+  setAreNotFriends(){
+    this.friendRequestService.wasRequestedYet(this.username,this.getChatPartner()).subscribe(
+      data => {
+        this.areNotFriends = data == "true" ? false : true;
+      }
+    );
   }
 
   connectToWS() {

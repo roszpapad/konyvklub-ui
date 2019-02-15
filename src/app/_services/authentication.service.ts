@@ -71,11 +71,11 @@ export class AuthenticationService {
   }
 
   isUser() {
-    return localStorage.getItem("currentUser") && this.tokenContainsAuthority(localStorage.getItem("currentUser"), 'ROLE_ECARRENT_USER') && !this.tokenContainsAuthority(localStorage.getItem("currentUser"), 'ROLE_ECARRENT_ADMIN');
+    return localStorage.getItem("currentUser") && this.tokenContainsAuthority(localStorage.getItem("currentUser"), 'ROLE_KONYVKLUB_USER') && !this.tokenContainsAuthority(localStorage.getItem("currentUser"), 'ROLE_KONYVKLUB_ADMIN');
   }
 
   isAdmin() {
-    return localStorage.getItem("currentUser") && this.tokenContainsAuthority(localStorage.getItem("currentUser"), 'ROLE_ECARRENT_ADMIN');
+    return localStorage.getItem("currentUser") && this.tokenContainsAuthority(localStorage.getItem("currentUser"), 'ROLE_KONYVKLUB_ADMIN');
   }
 
 
