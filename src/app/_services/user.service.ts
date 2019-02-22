@@ -30,12 +30,12 @@ export class UserService {
     return this._resourceService.deleteResourceFromApi('/users/' + userId);
   }
 
-  changePassword(id, oldPass, newPass) {
-    return this._resourceService.postData("/users/changePassword", {
-      "id": id,
-      "oldPassword": oldPass,
-      "newPassword": newPass
-    })
+  changePassword(data) {
+    return this._resourceService.postDataAndGetText("/users/changePassword", data);
+  }
+
+  sendChangePasswordEmail(data){
+    return this._resourceService.postDataAndGetText('/users/sendChangePasswordEmail',data);
   }
 
   changePicture(data){

@@ -23,7 +23,7 @@ export class NewBookDialogComponent implements OnInit {
       title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
       writer: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
       publisher: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-      yearOfPublishing: ['', [Validators.required, Validators.max(year)]]
+      yearOfPublishing: ['', [Validators.required, Validators.max(year), Validators.min(0)]]
     });
 
   }

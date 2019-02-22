@@ -19,6 +19,12 @@
       <li class="nav-item" *ngIf="isAuthenticated() && isUser()">
         <a class="nav-link" [routerLink]="['/reportUsers']">Jelentés</a>
       </li>
+      <li class="nav-item" *ngIf="isAuthenticated() && isAdmin()">
+        <a class="nav-link" [routerLink]="['/banUsers']">Tiltás</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated() && isAdmin()">
+        <a class="nav-link" [routerLink]="['/reports']">Panaszok</a>
+      </li>
     </ul>
     <ul class="navbar-nav menu ml-auto">
       <li class="nav-item" *ngIf="isAuthenticated()">
@@ -37,8 +43,10 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/myprofile']">Profilom</a>
           <a class="dropdown-item" [routerLink]="['/mybooks']">Könyveim</a>
+          <a class="dropdown-item" [routerLink]="['/chat']">Folyamatban levő cseréim</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Üzleteim</a>
+          <a class="dropdown-item" [routerLink]="['/mybooks']">Barátaim</a>
+          <a class="dropdown-item" [routerLink]="['/friendRequests']">Barátkérések</a>
         </div>
       </li>
       <li class="nav-item">

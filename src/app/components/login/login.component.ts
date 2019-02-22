@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
+  statusParam;
   myErrors = new Array();
 
   constructor(private router: Router,
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
 
     this.logoutService.logout();
 
+    this.statusParam = this.route.snapshot.queryParams['status'] || '';
     this.confirmationSuccess = this.route.snapshot.queryParams['success'] || '';
 
     this.showSuccessMessage = this.route.snapshot.queryParams['showSuccessMessage'] || '';
@@ -44,10 +46,16 @@ export class LoginComponent implements OnInit {
        this.openSnackbar();
     }
 
+    if (this.statusParam != '') {
+      this.snackBar.open("Jelszava megváltozott. Kérjük jelentkezzen be új jelszavával!","Bezár", {
+        duration : 6000
+      });
+    } 
+
   }
 
   openSnackbar() {
-    this.snackBar.open('Regisztracios emailt kuldtunk az On email cimere, kerem aktivalja fiokjat!','Bezar', {
+    this.snackBar.open('Regisztrációs emailt küldtünk az Ön email címére, kérjük aktiválja fiókját!','Bezár', {
       duration: 20000
     });
   }

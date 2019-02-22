@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { UserService } from 'src/app/_services/user.service';
-import { TokenService } from 'src/app/_services/token.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-my-profile',
@@ -9,10 +8,16 @@ import { TokenService } from 'src/app/_services/token.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public snackBar : MatSnackBar) { }
 
   ngOnInit() {
     
+  }
+
+  onPasswordChange(text){
+    this.snackBar.open(text,'Bezár', {
+      duration: 6000
+    });
   }
 
   

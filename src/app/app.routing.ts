@@ -17,6 +17,7 @@ import { ChangeProfilePicComponent } from './components/change-profile-pic/chang
 import { ReportUserComponent } from './components/report-user/report-user.component';
 import { ReportListComponent } from './components/report-list/report-list.component';
 import { FriendRequestsComponent } from './components/friend-requests/friend-requests.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 
 const appRoutes: Routes = [
     {
@@ -72,6 +73,9 @@ const appRoutes: Routes = [
     },
     {
         path: 'friendRequests', component: FriendRequestsComponent
+    },
+    {
+        path: 'changePassword', component: NewPasswordComponent
     }
 ];
 
