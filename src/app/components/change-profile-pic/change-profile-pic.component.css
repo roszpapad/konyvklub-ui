@@ -5,6 +5,10 @@
     display: block;
 }
 
+.underlined {
+    border-bottom: 1px solid black;
+}
+
 .inputfile {
 	width: 0.1px;
 	height: 0.1px;

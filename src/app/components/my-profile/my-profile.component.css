@@ -6,3 +6,7 @@
     background-color: lightgray;
     min-height: 100vh;
 }
+
+.underlined {
+    border-bottom: 1px solid black;
+}

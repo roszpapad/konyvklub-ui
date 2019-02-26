@@ -3,6 +3,10 @@
     width: auto;
 }
 
+.underlined {
+    border-bottom: 1px solid black;
+}
+
 .mat-cell {
     padding: 5px 30px 5px 0px;
 }

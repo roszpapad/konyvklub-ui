@@ -7,6 +7,10 @@
 	z-index: -1;
 }
 
+.underlined {
+    border-bottom: 1px solid black;
+}
+
 .inputfile + label {
     font-weight: 700;
     color: white;
