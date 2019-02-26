@@ -1,48 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, empty } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthenticationService } from '../_services/authentication.service';
+import { Router } from '@angular/router';
+import {_throw} from "rxjs/observable/throw";
 
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private authenticationService: AuthenticationService) {}
+  constructor(private authenticationService: AuthenticationService,
+    private router: Router) { }
 
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(request).pipe(
-          response => {return response;}
-
-          // catchError(err => {
-          //
-          //   console.log(err);
-          //   if (err.status === 401) {
-          //     // auto logout if 401 response returned from api
-          //     this.authenticationService.logout();
-          //     location.reload(true);
-          //   }
-          //
-          //   const error = err.error.message || err.statusText;
-          //   return throwError(error);
-          // })
-
-        );
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request).catch(
+      err => {
+        this.errorHandling(err);
+        return _throw(err); 
+      }
+    );
 
 
 
-    }
+  }
 
   errorHandling(err) {
-    console.log(err);
+    
     if (err.status === 401) {
-      // auto logout if 401 response returned from api
-      this.authenticationService.logout();
-      location.reload(true);
+      
+      this.router.navigate(['/login']);
+      return empty();
     }
 
-    const error = err.error.message || err.statusText;
-
-    return throwError(err);
+    if (err.status === 404) {
+      
+      this.router.navigate(['/404error']);
+      return empty();
+    }
+    
   }
 }

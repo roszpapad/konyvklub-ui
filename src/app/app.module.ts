@@ -49,6 +49,7 @@ import { ReportUserComponent } from './components/report-user/report-user.compon
 import { ReportListComponent } from './components/report-list/report-list.component';
 import { FriendRequestsComponent } from './components/friend-requests/friend-requests.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { NotFoundErrorComponent } from './components/not-found-error/not-found-error.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { NewPasswordComponent } from './components/new-password/new-password.com
     ReportUserComponent,
     ReportListComponent,
     FriendRequestsComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
+    NotFoundErrorComponent
   ],
   imports: [
     BrowserModule,

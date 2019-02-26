@@ -18,13 +18,16 @@ import { ReportUserComponent } from './components/report-user/report-user.compon
 import { ReportListComponent } from './components/report-list/report-list.component';
 import { FriendRequestsComponent } from './components/friend-requests/friend-requests.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { NotFoundErrorComponent } from './components/not-found-error/not-found-error.component';
+import { AuthGuard } from './_guards';
+import { AdminGuard } from './_guards/adminauth.guard';
 
 const appRoutes: Routes = [
     {
         path: 'register', component: RegisterComponent
     },
     {
-        path: 'notifications', component: NotificationsComponent
+        path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard]
     },
     {
         path: '', component: HomeComponent
@@ -33,10 +36,10 @@ const appRoutes: Routes = [
         path: 'login', component: LoginComponent
     },
     {
-        path: 'myprofile', component: MyProfileComponent
+        path: 'myprofile', component: MyProfileComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'mybooks', component: MyBooksComponent
+        path: 'mybooks', component: MyBooksComponent, canActivate: [AuthGuard]
     },
     {
         path: 'ticket', component: TicketComponent
@@ -45,37 +48,43 @@ const appRoutes: Routes = [
         path: 'filter', component: TicketFilterComponent
     },
     {
-        path: 'browse', component: BrowseTicketsComponent
+        path: 'browse', component: BrowseTicketsComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'tickets/:id', component: TicketShowComponent
+        path: 'tickets/:id', component: TicketShowComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'dummy', component: DummyComponent
+        path: 'dummy', component: DummyComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'chat', component: ChatComponent
+        path: 'chat', component: ChatComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'privateChat/:id', component: PrivateChatComponent
+        path: 'privateChat/:id', component: PrivateChatComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'banUsers', component: BanUsersComponent
+        path: 'banUsers', component: BanUsersComponent, canActivate: [AdminGuard]
     },
     {
-        path: 'changePicture', component: ChangeProfilePicComponent
+        path: 'changePicture', component: ChangeProfilePicComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'reportUsers', component: ReportUserComponent
+        path: 'reportUsers', component: ReportUserComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'reports', component: ReportListComponent
+        path: 'reports', component: ReportListComponent, canActivate: [AdminGuard]
     },
     {
-        path: 'friendRequests', component: FriendRequestsComponent
+        path: 'friendRequests', component: FriendRequestsComponent, canActivate: [AuthGuard]
     },
     {
-        path: 'changePassword', component: NewPasswordComponent
+        path: 'changePassword', component: NewPasswordComponent, canActivate: [AuthGuard]
+    },
+    {
+        path: '404error', component: NotFoundErrorComponent
+    },
+    {   
+        path: '**', redirectTo: '' 
     }
 ];
 

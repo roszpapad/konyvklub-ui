@@ -1,0 +1,40 @@
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 100vh;
+    background-color: lightgray; 
+}
+
+.error-p {
+    font-size: 230px;
+}
+
+.error-p img {
+    height: 230px;
+    width: auto;
+}
+
+.oops {
+    font-size : 50px;
+}
+
+.back-a {
+    font-size: 20px;
+}
+
+@media (max-width: 768px){
+    .error-p {
+        font-size: 100px;
+    }
+
+    .error-p img {
+        height: 100px;
+        width: auto;
+    }
+
+    .oops {
+        font-size : 20px;
+    }
+}
