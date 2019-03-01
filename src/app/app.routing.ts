@@ -21,6 +21,7 @@ import { NewPasswordComponent } from './components/new-password/new-password.com
 import { NotFoundErrorComponent } from './components/not-found-error/not-found-error.component';
 import { AuthGuard } from './_guards';
 import { AdminGuard } from './_guards/adminauth.guard';
+import { FriendsComponent } from './components/friends/friends.component';
 
 const appRoutes: Routes = [
     {
@@ -82,6 +83,9 @@ const appRoutes: Routes = [
     },
     {
         path: '404error', component: NotFoundErrorComponent
+    },
+    {
+        path: 'friends', component: FriendsComponent
     },
     {   
         path: '**', redirectTo: '' 

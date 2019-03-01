@@ -12,13 +12,25 @@ export class TicketComponent implements OnInit {
 
   @Input() ticket;
   image;
+  interestedButtonShow : boolean;
+  endDate;
 
   constructor(private router: Router,
     private userService: UserService) { }
 
   ngOnInit() {
     setTimeout(() => { this.getUserPicture(); }, 500);
+    this.setInterestedButtonShow();
+    this.setEndDate();
+  }
 
+  setInterestedButtonShow(){
+    var url = this.router.url;
+    this.interestedButtonShow = url.indexOf("tickets") > -1 ? false : true;
+  }
+
+  setEndDate(){
+    this.endDate = this.ticket.endDate.replace("T"," - ");
   }
 
   getUserPicture() {

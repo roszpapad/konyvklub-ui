@@ -1,0 +1,14 @@
+.profile-img {
+    height: 70px;
+    width: 70px;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.mat-card-content {
+    text-align: center;
+}
+
+.actions {
+    text-align: center;
+}

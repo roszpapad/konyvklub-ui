@@ -51,7 +51,6 @@ export class NavbarComponent implements OnInit {
     this.userService.getProfilePictureWithId(this.userId).subscribe(
       data => {
         if (data) {
-          console.log(data);
           this.image = data;
         }
       });

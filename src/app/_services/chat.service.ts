@@ -10,8 +10,12 @@ export class ChatService {
   constructor(private resourceService : ResourceService,
               private tokenService : TokenService) { }
 
-  getUserChannels(username){
-    return this.resourceService.getResourceFromApi('/users/' + username + '/channels');
+  getUserBusinessChannels(username){
+    return this.resourceService.getResourceFromApi('/users/' + username + '/businessChannels');
+  }
+
+  getUserFriendlyChannels(username){
+    return this.resourceService.getResourceFromApi('/users/' + username + '/friendlyChannels');
   }
 
   getChannelById(channelId){

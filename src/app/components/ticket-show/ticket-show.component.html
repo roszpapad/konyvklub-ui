@@ -11,7 +11,7 @@
   </div>
   <div class="row">
     <div class="col-8 offset-2 underlined mb-4 mt-4">
-      <h4>Ajánlatok<span class="float-right mb-2">
+      <h4>Ajánlatok<span *ngIf="!isOwner" class="float-right mb-2">
           <button (click)="openNewOfferDialog()" class="add-button" mat-raised-button>
             <i class="fas fa-plus"></i>
              Ajánlat hozzáadása

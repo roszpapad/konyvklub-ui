@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.tokenService.getTokenProperty("user_name");
-    this.chatService.getUserChannels(this.username).subscribe(
+    this.chatService.getUserBusinessChannels(this.username).subscribe(
       data => {
         this.chatChannels = data;
       }

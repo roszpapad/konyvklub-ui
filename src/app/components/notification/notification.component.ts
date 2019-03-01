@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class NotificationComponent implements OnInit {
 
   @Input() notification;
+  creationDate;
 
   isRejected : boolean;
 
@@ -16,6 +17,7 @@ export class NotificationComponent implements OnInit {
 
   ngOnInit() {
     this.setIsRejected();
+    this.setCreationDate();
   }
 
   navigateToTicket(ticketId){
@@ -32,6 +34,12 @@ export class NotificationComponent implements OnInit {
 
   goToChat(chatId){
     this.router.navigateByUrl("/privateChat/" + chatId);
+  }
+
+  setCreationDate(){
+    var creationTime : string = this.notification.createDate;
+    creationTime = creationTime.replace("T"," - ");
+    this.creationDate = creationTime;
   }
 
 }

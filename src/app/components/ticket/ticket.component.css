@@ -22,8 +22,8 @@
 }
 
 mat-card-header {
-    display: flex;
-    justify-content: center;
+    display: block;
+    text-align: center;
 }
 
 .title-text {
@@ -37,4 +37,13 @@ mat-card-header {
 .description {
     font-family: Arial, Helvetica, sans-serif !important;
     white-space: pre-line;
+}
+
+.offer-count {
+    color: blue;
+    font-style: italic;
+}
+
+mat-card-subtitle {
+    text-align: right;
 }

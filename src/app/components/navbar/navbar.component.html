@@ -27,15 +27,15 @@
       </li>
     </ul>
     <ul class="navbar-nav menu ml-auto">
-      <li class="nav-item" *ngIf="isAuthenticated()">
+      <li class="nav-item" *ngIf="isAuthenticated() && isUser()">
         <a class="nav-link mr-2" [routerLink]="['/notifications']">
-          <i class="far fa-bell" matBadge="15" matBadgeColor="warn"></i>
+          <i class="far fa-bell"></i>
         </a>
       </li>
       <li class="nav-item" *ngIf="!isAuthenticated()">
         <a class="nav-link" [routerLink]="['/register']">Regisztráció</a>
       </li>
-      <li class="nav-item dropdown" *ngIf="isAuthenticated()">
+      <li class="nav-item dropdown" *ngIf="isAuthenticated() && isUser()">
         <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           <img *ngIf="image; else dummyImage" src={{image}} class="profile-img mr-2" /><span>{{getUserName()}}</span>
@@ -44,8 +44,9 @@
           <a class="dropdown-item" [routerLink]="['/myprofile']">Profilom</a>
           <a class="dropdown-item" [routerLink]="['/mybooks']">Könyveim</a>
           <a class="dropdown-item" [routerLink]="['/chat']">Folyamatban levő cseréim</a>
+          <a class="dropdown-item" [routerLink]="['/changePicture']">Profilkép csere</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" [routerLink]="['/mybooks']">Barátaim</a>
+          <a class="dropdown-item" [routerLink]="['/friends']">Barátaim</a>
           <a class="dropdown-item" [routerLink]="['/friendRequests']">Barátkérések</a>
         </div>
       </li>

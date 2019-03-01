@@ -19,7 +19,7 @@
       </div>
     </div>
     <div *ngIf="isFound" class="col-12 col-lg-8 offset-lg-1 mt-5">
-      <h3>Találatok:</h3>
+      <h3>Találatok: {{ticketList.length}}</h3>
       <app-ticket-list [ticketList]="ticketList"></app-ticket-list>
     </div>
     <div *ngIf="!isFound" class="col-12 col-md-6 offset-md-3 text-center mt-5">

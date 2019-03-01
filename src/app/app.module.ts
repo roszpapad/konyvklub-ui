@@ -50,6 +50,8 @@ import { ReportListComponent } from './components/report-list/report-list.compon
 import { FriendRequestsComponent } from './components/friend-requests/friend-requests.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
 import { NotFoundErrorComponent } from './components/not-found-error/not-found-error.component';
+import { FriendsComponent } from './components/friends/friends.component';
+import { FriendCardComponent } from './components/friend-card/friend-card.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { NotFoundErrorComponent } from './components/not-found-error/not-found-e
     ReportListComponent,
     FriendRequestsComponent,
     NewPasswordComponent,
-    NotFoundErrorComponent
+    NotFoundErrorComponent,
+    FriendsComponent,
+    FriendCardComponent
   ],
   imports: [
     BrowserModule,

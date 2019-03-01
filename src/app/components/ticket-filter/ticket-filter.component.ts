@@ -27,12 +27,20 @@ export class TicketFilterComponent implements OnInit {
   }
 
   submit() {
-    this.ticketService
-    .filterTickets(this.form.get("title").value, this.form.get("writer").value, this.form.get("city").value, this.form.get("owned").value).subscribe(
-      data => {
-        this.ticketList.emit(data);
-      }
-    );
+    if (this.owned.value == false && this.title.value == "" && this.writer.value == "" && this.city.value == "") {
+      this.ticketService.getAllTickets().subscribe(
+        data => {
+          this.ticketList.emit(data);
+        }
+      );
+    } else {
+      this.ticketService
+        .filterTickets(this.form.get("title").value, this.form.get("writer").value, this.form.get("city").value, this.form.get("owned").value).subscribe(
+          data => {
+            this.ticketList.emit(data);
+          }
+        );
+    }
   }
 
   get title() { return this.form.get("title"); }

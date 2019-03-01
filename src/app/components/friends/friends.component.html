@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10 offset-1 mt-3 mb-3 underlined">
+      <h2>Barátok</h2>
+    </div>
+  </div>
+  <div class="row" *ngIf="chatChannels">
+    <div class="col-12 col-md-8 offset-md-2 mt-3">
+      <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let channel of chatChannels">
+          <app-friend-card [username]="username" [channel]="channel"></app-friend-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--col-12 col-md-8 offset-md-2 mt-3-->

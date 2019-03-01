@@ -23,7 +23,7 @@ export class TicketShowComponent implements OnInit {
     private ticketService: TicketService,
     private tokenService: TokenService,
     private router: Router,
-    private offerService : OfferService,
+    private offerService: OfferService,
     public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -34,34 +34,33 @@ export class TicketShowComponent implements OnInit {
     this.ticketService.getTicketById(this.ticketId).subscribe(
       data => {
         this.ticket = data;
+        if (this.tokenService.getTokenProperty('user_name') == this.ticket.seller.username) {
+          this.isOwner = true;
+        } else {
+          this.isOwner = false;
+        }
       }
     );
-
-    if (this.tokenService.getTokenProperty('user_name') == this.ticket.seller.username) {
-      this.isOwner = true;
-    } else {
-      this.isOwner = false;
-    }
 
   }
 
   refreshList() {
     this.router.navigateByUrl('/dummy', { skipLocationChange: true }).then(
-      () => {this.router.navigateByUrl('/tickets/' + this.ticketId );});
+      () => { this.router.navigateByUrl('/tickets/' + this.ticketId); });
   }
 
   afterRejected(isRejected: boolean) {
     setTimeout(
-      () => {this.refreshList();}, 1000
+      () => { this.refreshList(); }, 1000
     );
   }
 
-  afterAccepted(offerId){
+  afterAccepted(offerId) {
     this.offerService.acceptOffer(this.ticketId, offerId).subscribe();
-    this.router.navigateByUrl('/dummy');
+    this.router.navigateByUrl('/');
   }
 
-  openNewOfferDialog(){
+  openNewOfferDialog() {
 
     const dialogConfig = new MatDialogConfig();
 
@@ -69,14 +68,14 @@ export class TicketShowComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
-      'ticketId' : this.ticketId
+      'ticketId': this.ticketId
     };
 
 
     const dialogRef = this.dialog.open(NewOfferDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-      data => { if (data) this.refreshList();}
+      data => { if (data) this.refreshList(); }
     );
   }
 

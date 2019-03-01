@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-content>
+    <img *ngIf="image; else dummyImage" src={{image}} class="profile-img" />
+    <p>{{getChatPartner()}}</p>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <button mat-raised-button color="primary" (click)="navigateToChat()">Chat</button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #dummyImage>
+  <img src="assets/img/person.jpg" class="profile-img" />
+</ng-template>
