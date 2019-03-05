@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-notification',
@@ -12,20 +13,26 @@ export class NotificationComponent implements OnInit {
   creationDate;
 
   isRejected : boolean;
+  isExpired : boolean;
 
   constructor(private router : Router) { }
 
   ngOnInit() {
     this.setIsRejected();
     this.setCreationDate();
+    this.setIsExpired();
   }
 
   navigateToTicket(ticketId){
     this.router.navigateByUrl("/tickets/" + ticketId);
   }
 
+  setIsExpired(){
+    this.isExpired = this.notification.message == "Ticket lejárt:";
+  }
+
   setIsRejected(){
-    if (this.notification.message == "Ajánlat elutasítva:"){
+    if (this.notification.message == "Ajánlat elutasítva:" || this.notification.message == "Ticket lejárt:"){
       this.isRejected = true;
     } else {
       this.isRejected = false;

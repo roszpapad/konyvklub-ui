@@ -12,25 +12,28 @@ export class TicketComponent implements OnInit {
 
   @Input() ticket;
   image;
-  interestedButtonShow : boolean;
+  interestedButtonShow: boolean;
   endDate;
 
   constructor(private router: Router,
     private userService: UserService) { }
 
   ngOnInit() {
-    setTimeout(() => { this.getUserPicture(); }, 500);
-    this.setInterestedButtonShow();
-    this.setEndDate();
+    setTimeout(() => {
+      this.getUserPicture(); 
+      this.setInterestedButtonShow();
+      this.setEndDate();
+    }, 500);
   }
 
-  setInterestedButtonShow(){
+  setInterestedButtonShow() {
     var url = this.router.url;
     this.interestedButtonShow = url.indexOf("tickets") > -1 ? false : true;
   }
 
-  setEndDate(){
-    this.endDate = this.ticket.endDate.replace("T"," - ");
+  setEndDate() {
+    var ending = this.ticket.endDate.replace("T", " - ");
+    this.endDate = ending;
   }
 
   getUserPicture() {
@@ -46,5 +49,4 @@ export class TicketComponent implements OnInit {
   navigateToTicket(ticketId) {
     this.router.navigateByUrl('/tickets/' + ticketId);
   }
-
 }
