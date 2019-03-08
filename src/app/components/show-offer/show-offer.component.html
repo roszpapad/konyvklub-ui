@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-12">
+        <p>Az Ön által ajánlott könyv: {{offer.bookToPay.title}}</p>
+        <p>Állapot: <span [ngClass]="{
+          'is-pending': !isRejected,
+          'is-rejected': isRejected
+        }">{{statusText}}</span></p>
+        <p class="mb-3 pt-2 lined">Kívánt könyv részletei:</p>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <p>Eladó: {{ticket.seller.username}}</p>
+          </div>
+          <div class="col-12 col-md-6">
+            <p>Cím: {{ticket.bookToSell.title}}</p>
+          </div>
+          <div class="col-12 col-md-6">
+            <p>Író: {{ticket.bookToSell.writer}}</p>
+          </div>
+          <div class="col-12 col-md-6">
+            <p>Kiadó: {{ticket.bookToSell.publisher}}</p>
+          </div>
+          <div class="col-12 col-md-6">
+            <p>Kiadás éve: {{ticket.bookToSell.yearOfPublishing}}</p>
+          </div>
+          <div class="col-12 col-md-6">
+            <p>Eddigi ajánlatok száma: {{ticket.offers.length}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <button mat-raised-button color="primary" (click)="navigateToTicket(ticket.id)">Ugrás a ticketre</button>
+  </mat-card-actions>
+</mat-card>

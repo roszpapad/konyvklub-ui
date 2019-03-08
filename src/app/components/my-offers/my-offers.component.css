@@ -1,0 +1,12 @@
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightgray;
+    min-height: 100vh;
+}
+
+.underlined {
+    border-bottom: 1px solid black;
+}

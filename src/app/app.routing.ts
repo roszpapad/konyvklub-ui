@@ -22,6 +22,7 @@ import { NotFoundErrorComponent } from './components/not-found-error/not-found-e
 import { AuthGuard } from './_guards';
 import { AdminGuard } from './_guards/adminauth.guard';
 import { FriendsComponent } from './components/friends/friends.component';
+import { MyOffersComponent } from './components/my-offers/my-offers.component';
 
 const appRoutes: Routes = [
     {
@@ -41,12 +42,6 @@ const appRoutes: Routes = [
     },
     {
         path: 'mybooks', component: MyBooksComponent, canActivate: [AuthGuard]
-    },
-    {
-        path: 'ticket', component: TicketComponent
-    },
-    {
-        path: 'filter', component: TicketFilterComponent
     },
     {
         path: 'browse', component: BrowseTicketsComponent, canActivate: [AuthGuard]
@@ -85,7 +80,10 @@ const appRoutes: Routes = [
         path: '404error', component: NotFoundErrorComponent
     },
     {
-        path: 'friends', component: FriendsComponent
+        path: 'friends', component: FriendsComponent, canActivate: [AuthGuard]
+    },
+    {
+        path: 'myOffers', component: MyOffersComponent, canActivate: [AuthGuard]
     },
     {   
         path: '**', redirectTo: '' 

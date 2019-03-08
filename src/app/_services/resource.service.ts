@@ -18,7 +18,7 @@ export class ResourceService {
   }
 
   deleteResourceFromApi(url) {
-    return this.http.delete(API_URL + url);
+    return this.http.delete(API_URL + url, {responseType: 'text'});
   }
 
   constructor(private http: HttpClient) { }
@@ -60,20 +60,6 @@ export class ResourceService {
   getResourceFromApiAsTextWithParams(resourceUrl, data) {
     return this.http.get(API_URL + resourceUrl, { params: data, responseType: 'text' });
 
-  }
-
-  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
-    console.log("meghivodott resource");
-    let formdata: FormData = new FormData();
-
-    formdata.append('file', file);
-
-    const req = new HttpRequest('POST', 'http://localhost:8083/pictures', formdata, {
-      reportProgress: true,
-      responseType: 'text'
-    });
-
-    return this.http.request(req);
   }
 
   postData(url, data) {

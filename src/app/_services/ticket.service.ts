@@ -26,4 +26,12 @@ export class TicketService {
   createTicket(ticketdata){
     return this.resourceService.postData('/tickets/new',ticketdata);
   }
+
+  updateTicket(data){
+    return this.resourceService.putResourceToApi('/tickets/update',data);
+  }
+
+  deleteTicket(ticketId){
+    return this.resourceService.deleteResourceFromApi('/tickets/' + ticketId + '/delete');
+  }
 }

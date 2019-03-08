@@ -19,4 +19,12 @@ export class OfferService {
   createOffer(ticketId, offerdata){
     return this.resourceService.postData('/tickets/' + ticketId + '/offer', offerdata);
   }
+
+  updateOffer(data){
+    return this.resourceService.putResourceToApi('/offers/update', data);
+  }
+
+  deleteOffer(offerId){
+    return this.resourceService.deleteResourceFromApi('/offers/' + offerId + '/delete');
+  }
 }

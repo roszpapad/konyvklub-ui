@@ -52,6 +52,10 @@ import { NewPasswordComponent } from './components/new-password/new-password.com
 import { NotFoundErrorComponent } from './components/not-found-error/not-found-error.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { FriendCardComponent } from './components/friend-card/friend-card.component';
+import { MyOffersComponent } from './components/my-offers/my-offers.component';
+import { ShowOfferComponent } from './components/show-offer/show-offer.component';
+import { UpdateOfferDialogComponent } from './components/update-offer-dialog/update-offer-dialog.component';
+import { UpdateTicketDialogComponent } from './components/update-ticket-dialog/update-ticket-dialog.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +90,11 @@ import { FriendCardComponent } from './components/friend-card/friend-card.compon
     NewPasswordComponent,
     NotFoundErrorComponent,
     FriendsComponent,
-    FriendCardComponent
+    FriendCardComponent,
+    MyOffersComponent,
+    ShowOfferComponent,
+    UpdateOfferDialogComponent,
+    UpdateTicketDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -120,6 +128,6 @@ import { FriendCardComponent } from './components/friend-card/friend-card.compon
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NewBookDialogComponent,NewOfferDialogComponent,NewTicketDialogComponent]
+  entryComponents: [NewBookDialogComponent,NewOfferDialogComponent,NewTicketDialogComponent, UpdateOfferDialogComponent, UpdateTicketDialogComponent]
 })
 export class AppModule { }

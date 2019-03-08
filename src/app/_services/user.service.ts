@@ -70,4 +70,9 @@ export class UserService {
     return this._resourceService.getResourceFromApi('/users/' + userId + '/tickets');
   }
 
+  getUserAddress(){
+    let userId = this.tokenService.getTokenProperty("id");
+    return this._resourceService.getResourceFromApi('/users/' + userId + '/address');
+  }
+
 }

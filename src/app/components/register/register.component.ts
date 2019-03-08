@@ -49,7 +49,10 @@ export class RegisterComponent implements OnInit {
           'street': this.form.get("street").value
         }
       }).subscribe(
-        result => { this.router.navigate(['/login'], { queryParams: { showSuccessMessage: 'true' } }); },
+        result => { 
+          this.myErrors = [];
+          this.router.navigate(['/login'], { queryParams: { showSuccessMessage: 'true' } }); 
+        },
 
         error => {
         this.myErrors = error.error.errors;

@@ -36,6 +36,10 @@
     <button mat-raised-button (click)="acceptOffer(offer.id)" color="primary">Elfogad</button>
     <button mat-raised-button (click)="rejectOffer(offer.id)" color="warn">Elutasít</button>
   </mat-card-actions>
+  <mat-card-actions *ngIf="isOfferOwner" class="actions">
+    <button *ngIf="offer.status != 'REJECTED'" mat-raised-button (click)="updateOffer(offer)" color="primary">Módosít</button>
+    <button mat-raised-button (click)="deleteOffer(offer.id)" color="warn">Töröl</button>
+  </mat-card-actions>
 </mat-card>
 
 <!--*ngIf="isOwner && offer.status != 'REJECTED'"-->

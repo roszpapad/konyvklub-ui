@@ -1,0 +1,17 @@
+mat-form-field {
+    width: 60%;
+}
+
+mat-dialog-content{
+    width: 65vw;
+}
+
+@media only screen and (max-width: 550px) {
+    mat-form-field {
+        width: 90%;
+    }
+
+    mat-dialog-content{
+        width: 85vw;
+    }
+  }

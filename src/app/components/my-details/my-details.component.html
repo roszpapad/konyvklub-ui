@@ -4,16 +4,22 @@
   </div>
   <div class="col-12 mb-4">
     <div class="detail-column">
-      <p>Felhasznalonev</p>
-      <p>Email</p>
-      <p>Vezeteknev</p>
-      <p>Keresztnev</p>
+      <p>Felhasznalónév:</p>
+      <p>Email:</p>
+      <p>Vezetéknév:</p>
+      <p>Keresztnév:</p>
+      <p>Város:</p>
+      <p *ngIf="address.street != null && address.street != ''">Utca:</p>
+      <p *ngIf="address.number != null && address.number != ''">Házszám:</p>
     </div>
     <div class="detail-column">
       <p>{{username}}</p>
       <p>{{email}}</p>
       <p>{{lastName}}</p>
       <p>{{firstName}}</p>
+      <p>{{address.city}}</p>
+      <p *ngIf="address.street != null && address.street != ''">{{address.street}}</p>
+      <p *ngIf="address.number != null && address.number != ''">{{address.number}}</p>
     </div>
   </div>
   <div class="col-12">

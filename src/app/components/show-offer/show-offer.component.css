@@ -1,0 +1,15 @@
+.actions {
+    text-align: right;
+}
+
+.is-pending {
+    color:blue;
+}
+
+.is-rejected {
+    color:red;
+}
+
+.lined {
+    border-top: 1px solid grey;
+}
