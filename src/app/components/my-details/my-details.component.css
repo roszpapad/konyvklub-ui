@@ -18,3 +18,12 @@
         float: left;
     }
 }
+
+mat-card-header {
+    display: block;
+    text-align: center;
+}
+
+.actions{
+    text-align: right;
+}

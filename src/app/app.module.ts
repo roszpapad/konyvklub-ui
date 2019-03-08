@@ -56,6 +56,7 @@ import { MyOffersComponent } from './components/my-offers/my-offers.component';
 import { ShowOfferComponent } from './components/show-offer/show-offer.component';
 import { UpdateOfferDialogComponent } from './components/update-offer-dialog/update-offer-dialog.component';
 import { UpdateTicketDialogComponent } from './components/update-ticket-dialog/update-ticket-dialog.component';
+import { UpdateUserDialogComponent } from './components/update-user-dialog/update-user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { UpdateTicketDialogComponent } from './components/update-ticket-dialog/u
     MyOffersComponent,
     ShowOfferComponent,
     UpdateOfferDialogComponent,
-    UpdateTicketDialogComponent
+    UpdateTicketDialogComponent,
+    UpdateUserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -128,6 +130,6 @@ import { UpdateTicketDialogComponent } from './components/update-ticket-dialog/u
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NewBookDialogComponent,NewOfferDialogComponent,NewTicketDialogComponent, UpdateOfferDialogComponent, UpdateTicketDialogComponent]
+  entryComponents: [NewBookDialogComponent,NewOfferDialogComponent,NewTicketDialogComponent, UpdateOfferDialogComponent, UpdateTicketDialogComponent, UpdateUserDialogComponent]
 })
 export class AppModule { }

@@ -75,4 +75,12 @@ export class UserService {
     return this._resourceService.getResourceFromApi('/users/' + userId + '/address');
   }
 
+  updateUser(data){
+    return this._resourceService.putResourceToApi('/users/update',data);
+  }
+
+  getUserById(id){
+    return this._resourceService.getResourceFromApi('/users/' + id);
+  }
+
 }

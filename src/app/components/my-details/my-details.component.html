@@ -1,28 +1,32 @@
-<div class="row">
-  <div class="col-12 mb-5">
-    <h2 class="text-center">Adataim</h2>
-  </div>
-  <div class="col-12 mb-4">
-    <div class="detail-column">
-      <p>Felhasznalónév:</p>
-      <p>Email:</p>
-      <p>Vezetéknév:</p>
-      <p>Keresztnév:</p>
-      <p>Város:</p>
-      <p *ngIf="address.street != null && address.street != ''">Utca:</p>
-      <p *ngIf="address.number != null && address.number != ''">Házszám:</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Adataim</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-12 mb-2">
+        <div class="detail-column">
+          <p>Felhasználónév:</p>
+          <p>Email:</p>
+          <p>Vezetéknév:</p>
+          <p>Keresztnév:</p>
+          <p>Város:</p>
+          <p *ngIf="user.address.street != null && user.address.street != ''">Utca:</p>
+          <p *ngIf="user.address.number != null && user.address.number != ''">Házszám:</p>
+        </div>
+        <div class="detail-column">
+          <p>{{user.username}}</p>
+          <p>{{user.email}}</p>
+          <p>{{user.lastName}}</p>
+          <p>{{user.firstName}}</p>
+          <p>{{user.address.city}}</p>
+          <p *ngIf="user.address.street != null && user.address.street != ''">{{user.address.street}}</p>
+          <p *ngIf="user.address.number != null && user.address.number != ''">{{user.address.number}}</p>
+        </div>
+      </div>
     </div>
-    <div class="detail-column">
-      <p>{{username}}</p>
-      <p>{{email}}</p>
-      <p>{{lastName}}</p>
-      <p>{{firstName}}</p>
-      <p>{{address.city}}</p>
-      <p *ngIf="address.street != null && address.street != ''">{{address.street}}</p>
-      <p *ngIf="address.number != null && address.number != ''">{{address.number}}</p>
-    </div>
-  </div>
-  <div class="col-12">
-    <p>A konyveidert kattints <a [routerLink]="['/mybooks']">ide.</a></p>
-  </div>
-</div>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <button mat-raised-button color="primary" (click)="openUpdateDialog()">Módosít</button>
+  </mat-card-actions>
+</mat-card>
