@@ -46,6 +46,7 @@ export class ReportListComponent implements OnInit {
   }
 
   switchStatus(reported) {
+    this.reportService.deleteReportsByReported(reported).subscribe();
     this.userService.switchStatus(reported).subscribe(
       data => {
         if (this.form.valid) {

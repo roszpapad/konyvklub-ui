@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-not-found-error',
@@ -8,12 +9,16 @@ import { Location } from '@angular/common';
 })
 export class NotFoundErrorComponent implements OnInit {
 
-  constructor(private location : Location) { }
+  message;
+
+  constructor(private location: Location,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.message = this.route.snapshot.queryParams['message'] || '';
   }
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
 

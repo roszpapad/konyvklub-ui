@@ -19,4 +19,8 @@ export class ReportService {
   getAllReports(){
     return this.resourceService.getResourceFromApi("/reports/all");
   }
+
+  deleteReportsByReported(reported){
+    return this.resourceService.deleteResourceFromApi("/reports/" + reported + "/delete");
+  }
 }

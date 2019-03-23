@@ -34,8 +34,10 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
 
     if (err.status === 404) {
+      console.log("A message :");
+      console.log(err.error);
       
-      this.router.navigate(['/404error']);
+      this.router.navigate(['/404error'],{queryParams : {message : err.error}});
       return empty();
     }
     
