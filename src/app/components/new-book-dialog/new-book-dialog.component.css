@@ -2,6 +2,10 @@ mat-form-field {
     width: 60%;
 }
 
+.actions {
+    float: right;
+}
+
 @media only screen and (max-width: 550px) {
     mat-form-field {
         width: 90%;

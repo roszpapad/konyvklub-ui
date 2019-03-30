@@ -21,7 +21,7 @@ mat-card {
 
 
 .wrapper::after {
-    background-image: url("/assets/img/book2.jpg");
+    background-image: url("/assets/img/book1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

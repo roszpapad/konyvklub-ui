@@ -33,6 +33,12 @@ export class ErrorInterceptor implements HttpInterceptor {
       return empty();
     }
 
+    if (err.status === 403) {
+      
+      this.router.navigate(['/login']);
+      return empty();
+    }
+
     if (err.status === 404) {
       console.log("A message :");
       console.log(err.error);

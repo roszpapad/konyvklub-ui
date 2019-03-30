@@ -20,9 +20,9 @@ export class NewBookDialogComponent implements OnInit {
     let year = new Date().getFullYear();
 
     this.form = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-      writer: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
-      publisher: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(100)]],
+      title: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
+      writer: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
+      publisher: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
       yearOfPublishing: ['', [Validators.required, Validators.max(year), Validators.min(0)]]
     });
 

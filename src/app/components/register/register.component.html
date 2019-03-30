@@ -1,6 +1,6 @@
 <div class="container-fluid wrapper">
   <div class="row form-row">
-    <div class="col-10 offset-1 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+    <div class="col-10 offset-1 col-md-6 offset-md-3 col-lg-8 offset-lg-2">
 
 
       <mat-card>
@@ -13,7 +13,7 @@
             </div>
 
             <div class="row">
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field class="example-full-width">
                   <input matInput id="email" placeholder="Email" formControlName="email" required>
                   <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && (email.errors.required || email.errors.email)">
@@ -24,7 +24,7 @@
                   <div *ngIf="(myErrors.length > 0) && errorArrayContainsValue('email'); else templateName">{{getErrorMessage('email')}}</div>
                 </div>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Felhasználónév" id="username" formControlName="username" required>
                   <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && username.errors.required">
@@ -38,7 +38,7 @@
                   <div *ngIf="(myErrors.length > 0) && errorArrayContainsValue('username'); else templateName">{{getErrorMessage('username')}}</div>
                 </div>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Keresztnév" id="firstName" formControlName="firstName" required>
                   <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && firstName.errors.required">
@@ -49,7 +49,7 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Vezetéknév" id="lastName" formControlName="lastName" required>
                   <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors.required">
@@ -60,7 +60,7 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field>
                   <input matInput placeholder="Jelszó" [type]="hide ? 'password' : 'text'" id="password"
                     formControlName="password" required>
@@ -73,11 +73,10 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field>
-                  <input matInput placeholder="Jelszó ismet" [type]="hide1 ? 'password' : 'text'" id="passwordAgain"
+                  <input matInput placeholder="Jelszó ismet" [type]="hide ? 'password' : 'text'" id="passwordAgain"
                     formControlName="passwordAgain" required>
-                  <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched) && passwordAgain.errors.required">
                     required pass
                   </mat-error>
@@ -89,7 +88,7 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field>
                   <input matInput placeholder="Varos" id="city" formControlName="city" required>
                   <mat-error *ngIf="city.invalid && (city.dirty || city.touched) && city.errors.required">
@@ -97,12 +96,12 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field>
                   <input matInput placeholder="Utca" id="street" formControlName="street">
                 </mat-form-field>
               </div>
-              <div class="col-12 mb-3">
+              <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field>
                   <input matInput placeholder="Utcaszam" id="number" formControlName="number">
                 </mat-form-field>
