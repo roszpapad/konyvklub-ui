@@ -15,7 +15,7 @@
             <div class="row">
               <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field class="example-full-width">
-                  <input matInput id="email" placeholder="Email" formControlName="email" required>
+                  <input matInput id="email" placeholder="E-mail cím" formControlName="email" required>
                   <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && (email.errors.required || email.errors.email)">
                     Kérjük adjon meg egy létező e-mail címet!
                   </mat-error>
@@ -28,10 +28,10 @@
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Felhasználónév" id="username" formControlName="username" required>
                   <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && username.errors.required">
-                    Felhasználónév szukseges
+                    Kérjük adjon meg egy felhasználónevet!
                   </mat-error>
                   <mat-error *ngIf="username.invalid && (username.dirty || username.touched) && (username.errors.minlength || username.errors.maxlength)">
-                    Felhasznalonev 4 es 10 karakter kozt kell legyen
+                    A felhasználónév 4 és 10 karakter közt kell legyen!
                   </mat-error>
                 </mat-form-field>
                 <div class="alert alert-danger mt-2" [ngStyle]="{'display':(myErrors.length > 0) && errorArrayContainsValue('username') ? 'block' : 'none' }">
@@ -42,10 +42,10 @@
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Keresztnév" id="firstName" formControlName="firstName" required>
                   <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && firstName.errors.required">
-                    required fname
+                    Kérjük adja meg keresztnevét!
                   </mat-error>
                   <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && (firstName.errors.minlength || firstName.errors.maxlength)">
-                    Nev 2 es 20 karakter kozott
+                    A keresztnév 2 és 20 karakter között kell legyen!
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -53,10 +53,10 @@
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Vezetéknév" id="lastName" formControlName="lastName" required>
                   <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors.required">
-                    required nev
+                    Kérjük adja meg vezetéknevét!
                   </mat-error>
                   <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && (lastName.errors.minlength || lastName.errors.maxlength)">
-                    2 es 20 kar kozott
+                    A vezetéknév 2 és 20 karakter között kell legyen!
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -66,33 +66,33 @@
                     formControlName="password" required>
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors.required">
-                    required pass
+                    Kérjük adjon meg egy jelszót!
                   </mat-error>
                   <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && (password.errors.minlength || password.errors.maxlength)">
-                    6 es 15 koztt
+                    A jelszó 6 és 15 karakter között kell legyen!
                   </mat-error>
                 </mat-form-field>
               </div>
               <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field>
-                  <input matInput placeholder="Jelszó ismet" [type]="hide ? 'password' : 'text'" id="passwordAgain"
+                  <input matInput placeholder="Jelszó ismét" [type]="hide ? 'password' : 'text'" id="passwordAgain"
                     formControlName="passwordAgain" required>
                   <mat-error *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched) && passwordAgain.errors.required">
-                    required pass
+                    Kérjük adja meg újra a jelszót!
                   </mat-error>
                   <mat-error *ngIf="passwordAgain.invalid && (passwordAgain.dirty || passwordAgain.touched) && (passwordAgain.errors.minlength || passwordAgain.errors.maxlength)">
-                    6 es 15 koztt
+                    A jelszó 6 és 15 karakter között kell legyen!
                   </mat-error>
                   <mat-error *ngIf="(passwordAgain.dirty || passwordAgain.touched) && passwordAgain.errors && passwordAgain.errors.MatchPassword && !(passwordAgain.errors.minlength || passwordAgain.errors.maxlength)">
-                    Nem egyeznek
+                    A jelszavak nem egyeznek!
                   </mat-error>
                 </mat-form-field>
               </div>
               <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field>
-                  <input matInput placeholder="Varos" id="city" formControlName="city" required>
+                  <input matInput placeholder="Város" id="city" formControlName="city" required>
                   <mat-error *ngIf="city.invalid && (city.dirty || city.touched) && city.errors.required">
-                    required city
+                    Kérjük adja meg városa nevét!
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -103,7 +103,7 @@
               </div>
               <div class="col-12 col-lg-6 mb-3">
                 <mat-form-field>
-                  <input matInput placeholder="Utcaszam" id="number" formControlName="number">
+                  <input matInput placeholder="Házszám" id="number" formControlName="number">
                 </mat-form-field>
               </div>
             </div>

@@ -9,10 +9,10 @@
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="Keresztnév" id="firstName" formControlName="firstName" required>
                 <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && firstName.errors.required">
-                  required fname
+                  Kérjük adja meg keresztnevét!
                 </mat-error>
                 <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && (firstName.errors.minlength || firstName.errors.maxlength)">
-                  Nev 2 es 20 karakter kozott
+                  A keresztnév 2 és 20 karakter között kell legyen!
                 </mat-error>
               </mat-form-field>
             </div>
@@ -20,18 +20,18 @@
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="Vezetéknév" id="lastName" formControlName="lastName" required>
                 <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors.required">
-                  required nev
+                  Kérjük adja meg vezetéknevét!
                 </mat-error>
                 <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && (lastName.errors.minlength || lastName.errors.maxlength)">
-                  2 es 20 kar kozott
+                  A vezetéknév 2 és 20 karakter között kell legyen!
                 </mat-error>
               </mat-form-field>
             </div>
             <div class="col-12 mb-3">
               <mat-form-field>
-                <input matInput placeholder="Varos" id="city" formControlName="city" required>
+                <input matInput placeholder="Város" id="city" formControlName="city" required>
                 <mat-error *ngIf="city.invalid && (city.dirty || city.touched) && city.errors.required">
-                  required city
+                  Kérjük adja meg városa nevét!
                 </mat-error>
               </mat-form-field>
             </div>
@@ -42,12 +42,12 @@
             </div>
             <div class="col-12 mb-3">
               <mat-form-field>
-                <input matInput placeholder="Utcaszam" id="number" formControlName="number">
+                <input matInput placeholder="Házszám" id="number" formControlName="number">
               </mat-form-field>
             </div>
           </div>
         </mat-dialog-content>
-        <mat-dialog-actions>
+        <mat-dialog-actions class="actions">
           <button (click)="close()" class="btn float-right" mat-raised-button color="warn">Mégsem</button>
           <button type="submit" class="btn float-right" mat-raised-button color="primary" [disabled]="form.invalid">
             Módosít

@@ -6,6 +6,10 @@ mat-dialog-content{
     width: 65vw;
 }
 
+.actions {
+    float: right;
+}
+
 @media only screen and (max-width: 550px) {
     mat-form-field {
         width: 90%;

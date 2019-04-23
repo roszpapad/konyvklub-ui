@@ -13,13 +13,13 @@
     </div>
     <div class="row mt-2">
       <div class="col-12 col-sm-6">
-        <p>Iro: {{ticket.bookToSell.writer}}</p>
+        <p>Író: {{ticket.bookToSell.writer}}</p>
       </div>
       <div class="col-12 col-sm-6">
-        <p>Kiadas eve: {{ticket.bookToSell.yearOfPublishing}}</p>
+        <p>Kiadás éve: {{ticket.bookToSell.yearOfPublishing}}</p>
       </div>
       <div class="col-12 col-sm-6">
-        <p>Kiado: {{ticket.bookToSell.publisher}}</p>
+        <p>Kiadó: {{ticket.bookToSell.publisher}}</p>
       </div>
     </div>
     <div class="row">
@@ -33,7 +33,7 @@
     </div>
   </mat-card-content>
   <mat-card-actions *ngIf="interestedButtonShow" class="actions">
-    <button mat-raised-button color="primary" (click)="navigateToTicket(ticket.id)">Erdekel</button>
+    <button mat-raised-button color="primary" (click)="navigateToTicket(ticket.id)">Érdekel</button>
   </mat-card-actions>
   <mat-card-actions *ngIf="!interestedButtonShow && isOwner" class="actions">
     <button mat-raised-button color="primary" (click)="updateTicket(ticket)">Módosít</button>
